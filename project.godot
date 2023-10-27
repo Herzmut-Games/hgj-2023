@@ -24,7 +24,6 @@ PreloadAssets="*res://preload_assets.gd"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/resizable=false
 window/stretch/scale=4.0
 
 [rendering]
