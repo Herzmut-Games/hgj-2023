@@ -4,7 +4,7 @@ extends StaticBody2D
 # Spawnrate is the probability that an item is harvested.
 var spawnrate = 0.5
 # Seasons the item is active.
-var seasonsActive = [0,1,2,3]
+var seasonsActive = [Game.Season.SPRING, Game.Season.FALL, Game.Season.WINTER]
 # Season textures.
 var textures = {
 	0: Game.tree0,

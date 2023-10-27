@@ -4,7 +4,7 @@ extends Node2D
 # Spawnrate is the probability that an item is harvested.
 var spawnrate = 0.5
 # Seasons the item is active.
-var seasonsActive = [0,1,2,3]
+var seasonsActive = [Game.Season.SPRING, Game.Season.SUMMER, Game.Season.FALL, Game.Season.WINTER]
 # Season textures.
 var textures = {
 	0: Game.tree0,
@@ -14,8 +14,7 @@ var textures = {
 }
 
 # State!
-# season 0 = spring, 1 = summer, 2 = fall, 3 = winter.
-@export var season = 0
+@export var season = Game.Season.SPRING
 # Harvestable determines if the item currently can be harvested.
 var harvestable = true
 
@@ -36,21 +35,21 @@ func _on_klick():
 	if randVal > spawnrate:
 		# no harvest, return early
 		return
-		
+
 	# TODO trigger a harvest/drop.
 
 # _update_season sets the items season.
 func _update_season(newSeason):
 	if season == newSeason:
 		return
-		
+
 	# Update harvestable state.
 	if season not in seasonsActive:
 		harvestable = false
 	else:
 		harvestable = true
-	
+
 	# Update item texture.
 	texture.set_texture(textures[newSeason])
-		
+
 	season = newSeason

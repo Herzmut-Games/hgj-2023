@@ -1,7 +1,7 @@
 extends Node2D
 
 var seasons
-const ROTATION_SPEED = 0.1
+const ROTATION_SPEED = 33
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,14 +12,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-
-	seasons.set_rotation(seasons.get_rotation() - ROTATION_SPEED * delta)
+	_season_progress(delta)
 	pass
 
 func _season_progress(delta):
-	seasons.set_rotation(seasons.get_rotation() - ROTATION_SPEED * delta)
+	seasons.rotation_degrees -= ROTATION_SPEED * delta
 
-	var rot = seasons.get_rotation()
+	var rot = -1 * int(rad_to_deg( seasons.get_rotation())- 45.0) % 360
+
 
 	if rot >= 0 and rot < 90:
 		Game.set_season(Game.Season.SPRING)
