@@ -1,7 +1,9 @@
 extends Node
 
+enum Season { SPRING, SUMMER, FALL, WINTER }
+
 # season 0 = spring, 1 = summer, 2 = fall, 3 = winter.
-var season = 0
+@export var season = Season.SPRING
 
 # Preloaded sprites.
 var tree0 = preload("res://assets/Trees and Bushes/Tree_Dark_2.png")
@@ -16,6 +18,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	season += 1
-	if season == 4:
-		season = 0
+	pass
+
+func set_season(s):
+	season = s
