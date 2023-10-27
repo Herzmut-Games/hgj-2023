@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://doa5m66fxyvyu"]
+
+[ext_resource type="Script" path="res://Harvestable.gd" id="1_fa856"]
+
+[node name="Harvestable" type="Node2D"]
+script = ExtResource("1_fa856")
