@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://171lbw2eemyf" path="res://assets/Props.png" id="5_mpy7n"]
 [ext_resource type="Texture2D" uid="uid://ct3qvxvpyv3ud" path="res://Art/Trees_Bushes.png" id="5_otpfa"]
 [ext_resource type="PackedScene" uid="uid://cvo4k015vvbbc" path="res://player.tscn" id="6_gg4n0"]
-[ext_resource type="PackedScene" uid="uid://doa5m66fxyvyu" path="res://items/harvestable.tscn" id="8_u1jqo"]
 [ext_resource type="PackedScene" uid="uid://r1201yv7mddx" path="res://house_yellow_1.tscn" id="9_m58y2"]
+[ext_resource type="PackedScene" uid="uid://b3gxgbey3i7et" path="res://items/tree.tscn" id="10_758rq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jntsd"]
 texture = ExtResource("1_u11gi")
@@ -8665,11 +8665,11 @@ layer_3/y_sort_origin = 0
 layer_3/z_index = 0
 layer_3/tile_data = PackedInt32Array()
 
-[node name="Harvestable" parent="." instance=ExtResource("8_u1jqo")]
-position = Vector2(74, 163)
-
 [node name="Player" parent="." instance=ExtResource("6_gg4n0")]
 position = Vector2(133, 169)
 
 [node name="HouseYellow1" parent="." instance=ExtResource("9_m58y2")]
 position = Vector2(104, 96)
+
+[node name="Tree" parent="." instance=ExtResource("10_758rq")]
+position = Vector2(72, 192)

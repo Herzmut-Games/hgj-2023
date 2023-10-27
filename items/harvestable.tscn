@@ -8,6 +8,5 @@ script = ExtResource("1_8vxux")
 season = 2
 
 [node name="texture" type="Sprite2D" parent="."]
-position = Vector2(8, 8)
-scale = Vector2(0.25, 0.25)
+position = Vector2(0, -8)
 texture = ExtResource("2_34vn2")

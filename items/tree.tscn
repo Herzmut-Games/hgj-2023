@@ -3,14 +3,20 @@
 [ext_resource type="Script" path="res://items/tree.gd" id="1_368xa"]
 [ext_resource type="PackedScene" uid="uid://doa5m66fxyvyu" path="res://items/harvestable.tscn" id="2_nk8w0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fiau2"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5kggg"]
+radius = 8.75
+height = 20.0
 
 [node name="Tree" type="StaticBody2D"]
+y_sort_enabled = true
+position = Vector2(1, -20)
 script = ExtResource("1_368xa")
 
 [node name="Harvestable" parent="." instance=ExtResource("2_nk8w0")]
+position = Vector2(-1, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 8)
+position = Vector2(-1, 21)
+rotation = 1.5708
 scale = Vector2(0.8, 0.8)
-shape = SubResource("RectangleShape2D_fiau2")
+shape = SubResource("CapsuleShape2D_5kggg")
