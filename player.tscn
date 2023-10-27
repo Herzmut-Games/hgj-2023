@@ -142,6 +142,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 position = Vector2(125, 99)
 script = ExtResource("1_w4c37")
 metadata/_edit_group_ = true
@@ -151,6 +152,7 @@ position = Vector2(0, 9)
 shape = SubResource("CircleShape2D_6t56l")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_q8eyj")
 animation = &"walk_down"
 frame_progress = 0.116879
