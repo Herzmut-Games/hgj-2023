@@ -1,7 +1,7 @@
 extends Node2D
 
 var seasons
-const ROTATION_SPEED = 33
+const ROTATION_SPEED = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

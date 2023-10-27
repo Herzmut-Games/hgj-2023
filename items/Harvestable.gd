@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var timer = $Timer
+
 # Settings!
 # Spawnrate is the probability that an item is harvested.
 var spawnrate = 0.5
@@ -50,6 +52,12 @@ func _update_season(newSeason):
 		harvestable = true
 
 	# Update item texture.
-	texture.set_texture(textures[newSeason])
+	timer.wait_time = randf_range(0, 5)
+	timer.start()
+
 
 	season = newSeason
+
+
+func _on_timer_timeout():
+	texture.set_texture(textures[Game.season])
