@@ -16,4 +16,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	season += 1
+	if season == 4:
+		season = 0

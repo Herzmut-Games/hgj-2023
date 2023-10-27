@@ -16,7 +16,7 @@ var targets = []
 var direction = Vector2.ZERO
 
 func _ready():
-	_play_animation("Idle")
+	_play_animation("idle")
 
 func _physics_process(delta):
 	run_state(delta)

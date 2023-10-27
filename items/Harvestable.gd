@@ -15,14 +15,15 @@ var textures = {
 
 # State!
 # season 0 = spring, 1 = summer, 2 = fall, 3 = winter.
-var season = 0
+@export var season = 0
 # Harvestable determines if the item currently can be harvested.
 var harvestable = true
 
+@onready var texture = get_node("texture")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -43,13 +44,13 @@ func _update_season(newSeason):
 	if season == newSeason:
 		return
 		
+	# Update harvestable state.
 	if season not in seasonsActive:
 		harvestable = false
 	else:
 		harvestable = true
-		
-	match newSeason:
-		0:
-			texture.set_
+	
+	# Update item texture.
+	texture.set_texture(textures[newSeason])
 		
 	season = newSeason
