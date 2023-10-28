@@ -9716,3 +9716,53 @@ autoplay = "default"
 y_sort_enabled = true
 position = Vector2(552, 120)
 texture = ExtResource("17_6l3lg")
+
+[node name="Water" type="Node2D" parent="."]
+
+[node name="water" parent="Water" instance=ExtResource("18_7uts8")]
+position = Vector2(801, 39)
+
+[node name="water2" parent="Water" instance=ExtResource("18_7uts8")]
+position = Vector2(818, 63)
+
+[node name="water3" parent="Water" instance=ExtResource("18_7uts8")]
+position = Vector2(818, 70)
+
+[node name="water4" parent="Water" instance=ExtResource("18_7uts8")]
+position = Vector2(833, 86)
+
+[node name="water5" parent="Water" instance=ExtResource("18_7uts8")]
+position = Vector2(852, 102)
+
+[node name="water6" parent="Water" instance=ExtResource("18_7uts8")]
+position = Vector2(866, 119)
+
+[node name="water7" parent="Water" instance=ExtResource("18_7uts8")]
+position = Vector2(896, 135)
+
+[node name="water8" parent="Water" instance=ExtResource("18_7uts8")]
+position = Vector2(913, 152)
+
+[node name="water9" parent="Water" instance=ExtResource("18_7uts8")]
+position = Vector2(929, 167)
+
+[node name="water10" parent="Water" instance=ExtResource("18_7uts8")]
+position = Vector2(946, 184)
+
+[node name="water11" parent="Water" instance=ExtResource("18_7uts8")]
+position = Vector2(970, 184)
+
+[node name="water12" parent="Water" instance=ExtResource("18_7uts8")]
+position = Vector2(977, 199)
+
+[node name="water13" parent="Water" instance=ExtResource("18_7uts8")]
+position = Vector2(993, 216)
+
+[node name="water14" parent="Water" instance=ExtResource("18_7uts8")]
+position = Vector2(1017, 216)
+
+[node name="water15" parent="Water" instance=ExtResource("18_7uts8")]
+position = Vector2(1041, 216)
+
+[node name="water16" parent="Water" instance=ExtResource("18_7uts8")]
+position = Vector2(1066, 216)
