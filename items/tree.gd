@@ -8,8 +8,6 @@ extends StaticBody2D
 var TREE_REGROW_WAIT = 1
 var chopped = false
 
-# Season textures.
-@export var season = Game.Season.SPRING
 var textures = {
 	0: Game.tree0,
 	1: Game.tree1,
@@ -18,10 +16,10 @@ var textures = {
 }
 
 func _ready():
+	Game.connect("season_changed", _season_changed)
 	regrow_timer.wait_time = TREE_REGROW_WAIT
 
 func _process(_delta):
-	_update_season(Game.season)
 	if chopped:
 		stump.visible = true
 		texture.visible = false
@@ -30,21 +28,15 @@ func _process(_delta):
 		texture.visible = true
 
 # _update_season sets the items season.
-func _update_season(newSeason):
-	if season == newSeason:
-		return
-
+func _season_changed(new_season):
 	# Update item texture.
 	season_swap_timer.wait_time = randf_range(0, 5)
 	season_swap_timer.start()
-	
-	if newSeason != Game.Season.SPRING:
+
+	if new_season != Game.Season.SPRING:
 		regrow_timer.stop()
 	else:
 		regrow_timer.start()
-
-
-	season = newSeason
 
 func _chop():
 	chopped = true

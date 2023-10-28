@@ -13,7 +13,7 @@ enum Items {
 	WOOD, STONE, FOOD
 }
 
-var items = {
+var Inventory = {
 	Items.WOOD: 0,
 	Items.STONE: 0,
 	Items.FOOD: 0,
@@ -26,6 +26,7 @@ var tree2 = preload("res://assets/Trees and Bushes/Tree_Red_2.png")
 var tree3 = preload("res://assets/Trees and Bushes/Tree_Snow_2.png")
 
 signal season_changed
+signal inventory_updated
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -60,9 +61,29 @@ func get_item_name(item):
 func inc_hunger(amount = 1):
 	hunger_level += amount
 
+func has_item(item, amount):
+	return Inventory[item] >= amount
+
+# Takes dictionary of items and amounts
+func has_items(req_items):
+	for item in req_items:
+		if not has_item(item, req_items[item]):
+			return false
+	return true
+
 func inc_item(item, amount = 1):
-	items[item] += amount
+	Inventory[item] += amount
+	inventory_updated.emit(Inventory)
 
 func dec_item(item, amount = 1):
-	if items[item] >= amount:
-		items[item] -= amount
+	if Inventory[item] >= amount:
+		Inventory[item] -= amount
+		inventory_updated.emit(Inventory)
+
+# Takes dictionary of items and amounts
+func dec_items(req_items):
+	for item in req_items:
+		var amount = req_items[item]
+		if Inventory[item] >= amount:
+			Inventory[item] -= amount
+	inventory_updated.emit(Inventory)
