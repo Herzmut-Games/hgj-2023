@@ -4,7 +4,6 @@ enum Season { SPRING, SUMMER, FALL, WINTER }
 
 var season = Season.SPRING
 var hunger_level = 10
-var hunger_rate = 0.1
 var house_level = 0
 var fuel_left = 5
 
@@ -28,6 +27,7 @@ var tree3 = preload("res://assets/Trees and Bushes/Tree_Snow_2.png")
 
 signal season_changed
 signal fuel_changed
+signal hunger_changed
 signal inventory_updated
 
 # Called when the node enters the scene tree for the first time.
@@ -36,16 +36,22 @@ func _ready():
 	self.connect("fuel_changed", _fuel_changed)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	_tick_hunger(delta)
-	pass
+func dec_hunger():
+	hunger_level -= 1
 
-func _tick_hunger(delta):
-	hunger_level -= hunger_rate * delta
+	hunger_changed.emit(hunger_level)
+
 	if hunger_level < 0:
 		hunger_level = 0
 		end_game()
+
+func inc_hunger():
+	hunger_level += 1
+
+	if hunger_level > 10:
+		hunger_level = 10
+
+	hunger_changed.emit(hunger_level)
 
 func _fuel_changed(new_fuel):
 	if new_fuel == 0 and season == Game.Season.WINTER or season == Game.Season.FALL:
@@ -75,9 +81,6 @@ func get_item_name(item):
 		Items.WATER: 	return "Wasser"
 		Items.IRON: 	return "Eisen"
 		_: 				return "Unknown"
-
-func inc_hunger(amount = 1):
-	hunger_level += amount
 
 func has_item(item, amount):
 	return Inventory[item] >= amount
