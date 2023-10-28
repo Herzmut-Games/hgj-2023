@@ -442,6 +442,24 @@ animation = &"action_down"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 
+[node name="RainRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_am18p")
+offset_right = 558.0
+offset_bottom = 558.0
+
+[node name="RainFilter" type="ColorRect" parent="Camera2D/CanvasLayer"]
+visible = false
+offset_right = 487.0
+offset_bottom = 373.0
+color = Color(0, 0, 1, 0.172549)
+
+[node name="SummerFilter" type="ColorRect" parent="Camera2D/CanvasLayer"]
+visible = false
+offset_right = 487.0
+offset_bottom = 373.0
+color = Color(1, 0.572549, 0.196078, 0.192157)
+
 [node name="Clock" parent="Camera2D/CanvasLayer" instance=ExtResource("3_y124x")]
 position = Vector2(16, 16)
 scale = Vector2(0.0519274, 0.0519274)
@@ -453,12 +471,6 @@ scale = Vector2(0.3, 0.3)
 [node name="Inventory" parent="Camera2D/CanvasLayer" instance=ExtResource("7_0w584")]
 position = Vector2(1, 32)
 scale = Vector2(0.474674, 0.474674)
-
-[node name="RainRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
-visible = false
-material = SubResource("ShaderMaterial_am18p")
-offset_right = 558.0
-offset_bottom = 558.0
 
 [node name="InteractionBox" parent="." instance=ExtResource("6_rlfsf")]
 
