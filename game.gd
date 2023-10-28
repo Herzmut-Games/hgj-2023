@@ -12,7 +12,7 @@ var thirst_level = MAX_THIRST
 var house_level = 0
 var fuel_left = 5
 
-var tools = MAX_TOOLS / 2
+var tools = 0
 var tools_unlocked = false
 
 enum Items {

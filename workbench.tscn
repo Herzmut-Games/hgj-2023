@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bjclqqu4uempn"]
+[gd_scene load_steps=28 format=3 uid="uid://bjclqqu4uempn"]
 
 [ext_resource type="Script" path="res://workbench.gd" id="1_mfpxj"]
 [ext_resource type="Texture2D" uid="uid://mupy48p3a5sj" path="res://assets/Props/Barrel_3.png" id="1_nh2ja"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dxhpy6ix2um6k" path="res://assets/Props/City_Portal.png" id="12_1wfjt"]
 [ext_resource type="Texture2D" uid="uid://dt0hnxtffg40m" path="res://assets/Props/Chopped_Tree_2.png" id="13_u1ipm"]
 [ext_resource type="PackedScene" uid="uid://dfmenjshm88nc" path="res://interaction_box.tscn" id="15_qqpqn"]
+[ext_resource type="PackedScene" uid="uid://drsiuvq0t0v4o" path="res://required_resources.tscn" id="16_wthjb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cn3ff"]
 size = Vector2(66, 20)
@@ -187,3 +188,10 @@ position = Vector2(20, -14)
 shape = SubResource("CircleShape2D_nh3l8")
 
 [node name="Node2D" type="Node2D" parent="."]
+
+[node name="RequiredResources" parent="." instance=ExtResource("16_wthjb")]
+offset_left = 23.0
+offset_top = 35.0
+offset_right = 23.0
+offset_bottom = 35.0
+scale = Vector2(0.5, 0.5)
