@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://cvo4k015vvbbc"]
+[gd_scene load_steps=57 format=3 uid="uid://cvo4k015vvbbc"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_w4c37"]
 [ext_resource type="Texture2D" uid="uid://drsrti1a768ab" path="res://Art/Characters/Character/Character_Idle.png" id="2_2hbev"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://duwp8h05lie0j" path="res://Art/Characters/Character/Character_Walk.png" id="2_y1ngl"]
 [ext_resource type="PackedScene" uid="uid://d2swbw0kw3lee" path="res://Clock.tscn" id="3_y124x"]
 [ext_resource type="PackedScene" uid="uid://dfmenjshm88nc" path="res://interaction_box.tscn" id="6_rlfsf"]
+[ext_resource type="PackedScene" uid="uid://d1fwgigwwas5x" path="res://hunger_bar.tscn" id="5_0gf05"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6t56l"]
 
@@ -434,11 +435,16 @@ animation = &"action_down"
 position = Vector2(16, 16)
 scale = Vector2(0.0519274, 0.0519274)
 
+<<<<<<< HEAD
 [node name="InteractionBox" parent="." instance=ExtResource("6_rlfsf")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
 position = Vector2(-0.5, 7.5)
 shape = SubResource("RectangleShape2D_5icmi")
 disabled = true
+=======
+[node name="HungerBar" parent="Camera2D/CanvasLayer" instance=ExtResource("5_0gf05")]
+position = Vector2(35, 3)
+>>>>>>> 31339c4d19c62be23d3e38a14265d968780ef40a
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

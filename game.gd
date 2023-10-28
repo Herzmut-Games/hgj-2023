@@ -7,6 +7,8 @@ var hunger_level = 10
 
 var hunger_rate = 0.1
 
+var has_house = false
+
 # Preloaded sprites.
 var tree0 = preload("res://assets/Trees and Bushes/Tree_Dark_2.png")
 var tree1 = preload("res://assets/Trees and Bushes/Tree_Light_2.png")
