@@ -1,25 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1fwgigwwas5x"]
+[gd_scene load_steps=7 format=3 uid="uid://d1fwgigwwas5x"]
 
-[ext_resource type="Script" path="res://hunger_bar.gd" id="1_k2jmg"]
-[ext_resource type="Script" path="res://ThirstBar.gd" id="2_vrwbc"]
+[ext_resource type="Script" path="res://hunger_bar.gd" id="1_u5uxs"]
+[ext_resource type="Script" path="res://ThirstBar.gd" id="2_67708"]
+[ext_resource type="Script" path="res://ToolBar.gd" id="3_g0mtt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3cdt"]
 bg_color = Color(0.901961, 0, 0.101961, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_148t0"]
 bg_color = Color(0.133333, 0.32549, 1, 1)
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3whs"]
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
 
 [node name="Bars" type="Node2D"]
+metadata/_edit_vertical_guides_ = [200.0]
 
 [node name="HungerBar" type="Node2D" parent="."]
-script = ExtResource("1_k2jmg")
+script = ExtResource("1_u5uxs")
 
 [node name="ProgressBar" type="ProgressBar" parent="HungerBar"]
-offset_right = 202.0
+offset_right = 199.0
 offset_bottom = 9.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_j3cdt")
 max_value = 10.0
@@ -30,11 +41,11 @@ show_percentage = false
 [node name="Timer" type="Timer" parent="HungerBar"]
 
 [node name="ThirstBar" type="Node2D" parent="."]
-script = ExtResource("2_vrwbc")
+script = ExtResource("2_67708")
 
 [node name="ProgressBar" type="ProgressBar" parent="ThirstBar"]
 offset_top = 11.0
-offset_right = 202.0
+offset_right = 199.0
 offset_bottom = 20.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_148t0")
 max_value = 10.0
@@ -43,6 +54,18 @@ value = 10.0
 show_percentage = false
 
 [node name="Timer" type="Timer" parent="ThirstBar"]
+
+[node name="ToolBar" type="Node2D" parent="."]
+script = ExtResource("3_g0mtt")
+
+[node name="ProgressBar" type="ProgressBar" parent="ToolBar"]
+offset_top = 22.0
+offset_right = 199.0
+offset_bottom = 33.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_j3whs")
+max_value = 10.0
+value = 10.0
+show_percentage = false
 
 [connection signal="timeout" from="HungerBar/Timer" to="HungerBar" method="_on_timer_timeout"]
 [connection signal="timeout" from="ThirstBar/Timer" to="ThirstBar" method="_on_timer_timeout"]

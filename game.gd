@@ -4,12 +4,16 @@ enum Season { SPRING, SUMMER, FALL, WINTER }
 
 const MAX_HUNGER = 10
 const MAX_THIRST = 20
+const MAX_TOOLS = 8
 
 var season = Season.SPRING
 var hunger_level = MAX_HUNGER
 var thirst_level = MAX_THIRST
 var house_level = 0
 var fuel_left = 5
+
+var tools = MAX_TOOLS / 2
+var tools_unlocked = false
 
 enum Items {
 	WOOD, STONE, IRON, FOOD
@@ -32,6 +36,7 @@ signal season_changed
 signal fuel_changed
 signal hunger_changed
 signal thirst_changed
+signal tools_changed
 signal inventory_updated
 
 # Called when the node enters the scene tree for the first time.
@@ -132,6 +137,24 @@ func burn_fuel():
 	if fuel_left > 0:
 		fuel_left -= 1
 		fuel_changed.emit(fuel_left)
+
+func use_tool():
+	if tools > 0:
+		tools -= 1
+		tools_changed.emit(tools)
+		return true
+	return false
+
+func add_tools():
+	tools += 3
+	if tools > MAX_TOOLS:
+		tools = MAX_TOOLS
+
+	tools_changed.emit(tools)
+
+func unlock_tools():
+	tools_unlocked = true
+	tools_changed.emit(tools)
 
 func end_game():
 	get_tree().change_scene_to_file("res://end.tscn")

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dctwasumwodti" path="res://assets/Character/Character/Character_Slash.png" id="2_ewwtq"]
 [ext_resource type="Texture2D" uid="uid://duwp8h05lie0j" path="res://Art/Characters/Character/Character_Walk.png" id="2_y1ngl"]
 [ext_resource type="PackedScene" uid="uid://d2swbw0kw3lee" path="res://Clock.tscn" id="3_y124x"]
-[ext_resource type="PackedScene" uid="uid://d1fwgigwwas5x" path="res://hunger_bar.tscn" id="5_0gf05"]
+[ext_resource type="PackedScene" uid="uid://d1fwgigwwas5x" path="res://bars.tscn" id="5_0gf05"]
 [ext_resource type="PackedScene" uid="uid://dfmenjshm88nc" path="res://interaction_box.tscn" id="6_rlfsf"]
 [ext_resource type="PackedScene" uid="uid://g3xyjfrck5af" path="res://Inventory.tscn" id="7_0w584"]
 [ext_resource type="Shader" path="res://player.gdshader" id="8_pf26w"]
