@@ -5,6 +5,7 @@ var item_list
 var log_sprite = preload("res://assets/Props/Logs_1.png")
 var food_sprite = preload("res://assets/Props/Plant_Pumpkin.png")
 var stone_sprite = preload("res://assets/Rocks/Rock_Brown_4.png")
+var water_sprite = preload("res://assets/Props/Barrel_3.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,5 +28,7 @@ func _render_items(items):
 				icon = stone_sprite
 			Game.Items.FOOD:
 				icon = food_sprite
+			Game.Items.WATER:
+				icon = water_sprite
 
 		item_list.add_item(Game.get_item_name(item_name) + ": " + amount, icon, false)
