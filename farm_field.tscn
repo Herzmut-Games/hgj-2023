@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cf4h4pxrc24h8"]
+[gd_scene load_steps=11 format=3 uid="uid://cf4h4pxrc24h8"]
 
 [ext_resource type="Texture2D" uid="uid://nrpeftr2rk7" path="res://assets/Tileset_FarmField.png" id="1_6kva2"]
 [ext_resource type="Script" path="res://farm_field.gd" id="1_dmkob"]
@@ -381,7 +381,10 @@ sources/0 = SubResource("TileSetAtlasSource_wyj3g")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vcjb"]
 size = Vector2(93, 92)
 
-[node name="FarmField" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upv0p"]
+size = Vector2(92, 91)
+
+[node name="FarmField" type="StaticBody2D"]
 position = Vector2(352, 88)
 script = ExtResource("1_dmkob")
 
@@ -671,3 +674,7 @@ texture = ExtResource("5_04m6a")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
 position = Vector2(47.5, 16)
 shape = SubResource("RectangleShape2D_6vcjb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(48, 16.5)
+shape = SubResource("RectangleShape2D_upv0p")
