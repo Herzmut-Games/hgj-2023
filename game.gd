@@ -10,13 +10,14 @@ var hunger_rate = 0.1
 var has_house = false
 
 enum Items {
-	WOOD, STONE, FOOD
+	WOOD, STONE, FOOD, WATER
 }
 
 var Inventory = {
 	Items.WOOD: 0,
 	Items.STONE: 0,
 	Items.FOOD: 0,
+	Items.WATER: 0,
 }
 
 # Preloaded sprites.
