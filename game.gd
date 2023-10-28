@@ -44,9 +44,9 @@ func _tick_hunger(delta):
 	if hunger_level < 0:
 		hunger_level = 0
 		end_game()
-		
-func _season_changed(season):
-	if Game.season == Game.Season.WINTER && has_house == false:
+
+func _season_changed(new_season):
+	if new_season == Game.Season.WINTER && has_house == false:
 		end_game()
 
 func set_season(s):
@@ -61,6 +61,8 @@ func get_item_name(item):
 		return "Stone"
 	elif item == Items.FOOD:
 		return "Food"
+	elif item == Items.WATER:
+		return "Water"
 	else:
 		return "Unknown"
 
