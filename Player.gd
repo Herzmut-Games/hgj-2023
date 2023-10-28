@@ -9,6 +9,9 @@ extends CharacterBody2D
 
 @onready var rain = $Camera2D/CanvasLayer/RainRect
 @onready var rain_filter = $Camera2D/CanvasLayer/RainFilter
+@onready var notify_label = $Camera2D/CanvasLayer/PanelContainer
+@onready var notify_rtl = $Camera2D/CanvasLayer/PanelContainer/MarginContainer/RichTextLabel
+@onready var notify_timer = $NotifyTimer
 
 enum {
 	RUN,
@@ -22,6 +25,7 @@ var state = RUN
 
 func _ready():
 	Game.season_changed.connect(season_changed)
+	Game.notify.connect(notify)
 	_play_animation("idle")
 
 func _physics_process(delta):
@@ -97,3 +101,13 @@ func season_changed(_season):
 
 func interact(_area):
 	pass
+
+func notify(text):
+	notify_label.visible = true
+	notify_rtl.clear()
+	notify_rtl.add_text(text)
+	notify_timer.start()
+	
+
+func _on_notify_timer_timeout():
+	notify_label.visible = false

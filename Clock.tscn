@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b83b4lhqret7j" path="res://assets/clock_case.png" id="3_yqe6r"]
 
 [node name="Clock" type="Node2D"]
+scale = Vector2(4, 4)
 script = ExtResource("1_ruhwx")
 
 [node name="Seasons" type="Sprite2D" parent="."]

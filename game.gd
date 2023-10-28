@@ -42,6 +42,7 @@ signal hunger_changed
 signal thirst_changed
 signal tools_changed
 signal inventory_updated
+signal notify
 
 
 # Called when the node enters the scene tree for the first time.
@@ -95,6 +96,8 @@ func _season_changed(new_season):
 			elif fuel_left == 0:
 				end_game()
 		Game.Season.FALL:
+			if house_level < 1:
+				send_notify("A cold winter is approaching!")
 			if fuel_left == 0:
 				end_game()
 
@@ -164,6 +167,9 @@ func add_tools():
 func unlock_tools():
 	tools_unlocked = true
 	tools_changed.emit(tools)
+	
+func send_notify(text):
+	notify.emit(text)
 
 func end_game():
 	get_tree().change_scene_to_file("res://end.tscn")

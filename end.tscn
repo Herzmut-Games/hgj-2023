@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxo4nggnkvmx4"]
+[gd_scene load_steps=4 format=3 uid="uid://bxo4nggnkvmx4"]
 
 [ext_resource type="Script" path="res://end.gd" id="1_apqty"]
 [ext_resource type="Texture2D" uid="uid://hu5q3pbl0qjg" path="res://assets/9259344.jpg" id="1_tpd2w"]
+[ext_resource type="FontFile" uid="uid://or1ir2y2kqgd" path="res://assets/monogram-extended.ttf" id="3_pjyj0"]
 
 [node name="end" type="Control"]
 layout_mode = 3
@@ -13,24 +14,28 @@ grow_vertical = 2
 script = ExtResource("1_apqty")
 
 [node name="TextureRect" type="Sprite2D" parent="."]
-position = Vector2(245.25, 164.5)
-scale = Vector2(0.1635, 0.1635)
+position = Vector2(959.25, 640.5)
+scale = Vector2(0.6395, 0.6395)
 texture = ExtResource("1_tpd2w")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 168.0
-offset_top = 40.0
-offset_right = 321.0
-offset_bottom = 66.0
+offset_left = 536.0
+offset_top = 56.0
+offset_right = 1400.0
+offset_bottom = 163.0
+theme_override_fonts/font = ExtResource("3_pjyj0")
+theme_override_font_sizes/font_size = 128
 text = "Schade Schokolade!"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 208.0
-offset_top = 216.0
-offset_right = 286.0
-offset_bottom = 247.0
+offset_left = 856.0
+offset_top = 816.0
+offset_right = 1032.0
+offset_bottom = 876.0
+theme_override_fonts/font = ExtResource("3_pjyj0")
+theme_override_font_sizes/font_size = 64
 text = "Nochmal"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
