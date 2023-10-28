@@ -8,7 +8,7 @@ var state = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Game.connect("season_changed", _season_changed)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,11 +16,18 @@ func _process(delta):
 	_draw_plants()
 	
 func interact(area):
-	if state == 3:
+	if Game.season == Game.Season.SPRING && state == 0:
+		state = 1
+	if Game.season == Game.Season.FALL && state == 3:
 		state = 0
-	else:
-		state += 1
-	
+		Game.inc_item(Game.Items.FOOD, 5)
+
+func _season_changed(season):
+	if season == Game.Season.SUMMER && state == 1:
+		state = 2
+	if season == Game.Season.WINTER && state != 0:
+		state = 0
+
 func _draw_plants():
 	if state == 0:
 		_show_no_plants()
