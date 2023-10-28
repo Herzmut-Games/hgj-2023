@@ -4,7 +4,7 @@ extends StaticBody2D
 @onready var texture = $texture
 @onready var stump = $Stump
 
-var mined = true
+var mined = false
 
 # Season textures.
 @export var season = Game.Season.SPRING
