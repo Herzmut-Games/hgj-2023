@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b0d7glm55ekkw"]
+[gd_scene load_steps=22 format=3 uid="uid://b0d7glm55ekkw"]
 
 [ext_resource type="Texture2D" uid="uid://4gk76xijdfpe" path="res://assets/Tileset_Ground.png" id="1_u11gi"]
 [ext_resource type="Texture2D" uid="uid://bpm6jyra8y3hh" path="res://Art/Tileset_Road.png" id="2_1cmeu"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://r1201yv7mddx" path="res://house_yellow_1.tscn" id="9_m58y2"]
 [ext_resource type="PackedScene" uid="uid://b3gxgbey3i7et" path="res://items/tree.tscn" id="10_758rq"]
 [ext_resource type="PackedScene" uid="uid://cf4h4pxrc24h8" path="res://farm_field.tscn" id="11_0sn32"]
+[ext_resource type="PackedScene" uid="uid://daeod21j04orv" path="res://campfire.tscn" id="12_dmc8u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jntsd"]
 texture = ExtResource("1_u11gi")
@@ -9547,3 +9548,6 @@ position = Vector2(-170, 871)
 position = Vector2(-138, 847)
 
 [node name="FarmField" parent="." instance=ExtResource("11_0sn32")]
+
+[node name="Campfire" parent="." instance=ExtResource("12_dmc8u")]
+position = Vector2(240, 128)

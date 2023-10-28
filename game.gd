@@ -57,6 +57,9 @@ func get_item_name(item):
 	else:
 		return "Unknown"
 
+func inc_hunger(amount = 1):
+	hunger_level += amount
+
 func inc_item(item, amount = 1):
 	items[item] += amount
 
