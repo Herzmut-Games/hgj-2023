@@ -2,13 +2,17 @@ extends Node
 
 enum Season { SPRING, SUMMER, FALL, WINTER }
 
+const MAX_HUNGER = 10
+const MAX_THIRST = 20
+
 var season = Season.SPRING
-var hunger_level = 10
+var hunger_level = MAX_HUNGER
+var thirst_level = MAX_THIRST
 var house_level = 0
 var fuel_left = 5
 
 enum Items {
-	WOOD, STONE, IRON, FOOD, WATER
+	WOOD, STONE, IRON, FOOD
 }
 
 var Inventory = {
@@ -16,7 +20,6 @@ var Inventory = {
 	Items.STONE: 0,
 	Items.IRON: 0,
 	Items.FOOD: 0,
-	Items.WATER: 0,
 }
 
 # Preloaded sprites.
@@ -28,6 +31,7 @@ var tree3 = preload("res://assets/Trees and Bushes/Tree_Snow_2.png")
 signal season_changed
 signal fuel_changed
 signal hunger_changed
+signal thirst_changed
 signal inventory_updated
 
 # Called when the node enters the scene tree for the first time.
@@ -35,6 +39,18 @@ func _ready():
 	self.connect("season_changed", _season_changed)
 	self.connect("fuel_changed", _fuel_changed)
 
+func dec_thirst():
+	thirst_level -= 1
+
+	thirst_changed.emit(thirst_level)
+
+	if thirst_level < 0:
+		thirst_level = 0
+		end_game()
+
+func inc_thirst():
+	thirst_level = MAX_THIRST
+	thirst_changed.emit(thirst_level)
 
 func dec_hunger():
 	hunger_level -= 1
@@ -48,8 +64,8 @@ func dec_hunger():
 func inc_hunger():
 	hunger_level += 1
 
-	if hunger_level > 10:
-		hunger_level = 10
+	if hunger_level > MAX_HUNGER:
+		hunger_level = MAX_HUNGER
 
 	hunger_changed.emit(hunger_level)
 
@@ -78,7 +94,6 @@ func get_item_name(item):
 		Items.WOOD: 	return "Holz"
 		Items.STONE: 	return "Steine"
 		Items.FOOD: 	return "Essen"
-		Items.WATER: 	return "Wasser"
 		Items.IRON: 	return "Eisen"
 		_: 				return "Unknown"
 
