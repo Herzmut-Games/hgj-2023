@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://daeod21j04orv"]
+[gd_scene load_steps=16 format=3 uid="uid://kn0amdp3badh"]
 
 [ext_resource type="Script" path="res://Campfire.gd" id="1_p7meb"]
 [ext_resource type="Texture2D" uid="uid://c4hktlof8aeub" path="res://assets/Animations/Campfire.png" id="2_42tbq"]
 [ext_resource type="PackedScene" uid="uid://dfmenjshm88nc" path="res://interaction_box.tscn" id="3_3mqav"]
+[ext_resource type="PackedScene" uid="uid://drsiuvq0t0v4o" path="res://required_resources.tscn" id="4_81xwx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_51g1w"]
 radius = 16.0
@@ -89,3 +90,8 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
 shape = SubResource("CircleShape2D_ppnjt")
+
+[node name="RequiredResources" parent="." instance=ExtResource("4_81xwx")]
+offset_top = -25.0
+offset_bottom = -25.0
+scale = Vector2(0.3, 0.3)
