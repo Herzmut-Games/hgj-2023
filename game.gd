@@ -9,6 +9,16 @@ var hunger_rate = 0.1
 
 var has_house = false
 
+enum Items {
+	WOOD, STONE, FOOD
+}
+
+var items = {
+	Items.WOOD: 0,
+	Items.STONE: 0,
+	Items.FOOD: 0,
+}
+
 # Preloaded sprites.
 var tree0 = preload("res://assets/Trees and Bushes/Tree_Dark_2.png")
 var tree1 = preload("res://assets/Trees and Bushes/Tree_Light_2.png")
@@ -32,3 +42,13 @@ func _tick_hunger(delta):
 
 func set_season(s):
 	season = s
+
+func get_item_name(item):
+	if item == Items.WOOD:
+		return "Wood"
+	elif item == Items.STONE:
+		return "Stone"
+	elif item == Items.FOOD:
+		return "Food"
+	else:
+		return "Unknown"
