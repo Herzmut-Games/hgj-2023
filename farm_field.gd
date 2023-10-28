@@ -16,16 +16,16 @@ func _process(delta):
 	_draw_plants()
 	
 func interact(area):
-	if Game.season == Game.Season.SPRING && state == 0:
-		state = 1
+	if Game.season != Game.Season.WINTER && state == 0:
+		state += 1
 	if Game.season == Game.Season.FALL && state == 3:
 		state = 0
 		Game.inc_item(Game.Items.FOOD, 5)
 
 func _season_changed(season):
-	if season == Game.Season.SUMMER && state == 1:
-		state = 2
-	if season == Game.Season.WINTER && state != 0:
+	if Game.season != Game.Season.WINTER && state != 0:
+		state += 1
+	elif Game.season == Game.Season.WINTER:
 		state = 0
 
 func _draw_plants():
