@@ -28,7 +28,5 @@ func _render_items(items):
 				icon = stone_sprite
 			Game.Items.FOOD:
 				icon = food_sprite
-			Game.Items.WATER:
-				icon = water_sprite
 
 		item_list.add_item(Game.get_item_name(item_name) + ": " + amount, icon, false)

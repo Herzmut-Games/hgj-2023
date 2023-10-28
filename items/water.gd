@@ -14,7 +14,7 @@ func _ready():
 func _process(delta):
 	if regrow_timer.is_stopped():
 		regrow_timer.start()
-	
+
 
 func _on_timer_timeout():
 	pass
@@ -26,7 +26,7 @@ func interact(area):
 
 func _scoop():
 	scooped = true
-	Game.inc_item(Game.Items.WATER)
+	Game.inc_thirst()
 
 func _grow():
 	scooped = false
