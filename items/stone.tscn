@@ -30,7 +30,10 @@ texture = ExtResource("3_2oxv7")
 [node name="texture" type="Sprite2D" parent="."]
 texture = ExtResource("4_w1weu")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="SeasonSwapTimer" type="Timer" parent="."]
+
+[node name="RegrowTimer" type="Timer" parent="."]
+wait_time = 10.0
 
 [node name="InteractionBox" parent="." instance=ExtResource("5_qldfx")]
 
@@ -39,3 +42,6 @@ visible = false
 position = Vector2(0, 2)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_nlo35")
+
+[connection signal="timeout" from="SeasonSwapTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="RegrowTimer" to="." method="_on_regrow_timer_timeout"]
