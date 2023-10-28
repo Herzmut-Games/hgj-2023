@@ -6,11 +6,10 @@ var colors = ["black", "yellow", "red", "purple", "white", "blue"]
 func _ready():
 	var color = colors[randi() % colors.size()]
 	anim_sprite.animation = color
-	Game.connect("thunderstorm_started", thunderstorm_started)
-	Game.connect("season_changed", season_changed)
-
-func thunderstorm_started():
-	anim_sprite.play()
+	Game.season_changed.connect(season_changed)
 
 func season_changed(season):
-	anim_sprite.stop()
+	if Game.thunderstorm:
+		anim_sprite.play()
+	else:
+		anim_sprite.stop()

@@ -21,8 +21,7 @@ var direction = Vector2.ZERO
 var state = RUN
 
 func _ready():
-	Game.connect("thunderstorm_started", thunderstorm_started)
-	Game.connect("season_changed", season_changed)
+	Game.season_changed.connect(season_changed)
 	_play_animation("idle")
 
 func _physics_process(delta):
@@ -88,13 +87,13 @@ func _on_animated_sprite_2d_animation_finished():
 		interaction_area.disabled = true
 		state = RUN
 
-func thunderstorm_started():
-	rain.visible = true
-	rain_filter.visible = true
-	
 func season_changed(season):
-	rain.visible = false
-	rain_filter.visible = false
+	if Game.thunderstorm:
+		rain.visible = true
+		rain_filter.visible = true
+	else:
+		rain.visible = false
+		rain_filter.visible = false
 
 func interact(_area):
 	pass
