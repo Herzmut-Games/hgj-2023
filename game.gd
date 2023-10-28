@@ -7,15 +7,16 @@ var hunger_level = 10
 
 var hunger_rate = 0.1
 
-var has_house = false
+var house_level = 0
 
 enum Items {
-	WOOD, STONE, FOOD, WATER
+	WOOD, STONE, IRON, FOOD, WATER
 }
 
 var Inventory = {
 	Items.WOOD: 0,
 	Items.STONE: 0,
+	Items.IRON: 0,
 	Items.FOOD: 0,
 	Items.WATER: 0,
 }
@@ -46,7 +47,7 @@ func _tick_hunger(delta):
 		end_game()
 
 func _season_changed(new_season):
-	if new_season == Game.Season.WINTER && has_house == false:
+	if new_season == Game.Season.WINTER && house_level < 1:
 		end_game()
 
 func set_season(s):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://r1201yv7mddx"]
+[gd_scene load_steps=20 format=3 uid="uid://r1201yv7mddx"]
 
 [ext_resource type="Script" path="res://house_yellow_1.gd" id="1_127kk"]
 [ext_resource type="Texture2D" uid="uid://boa415q23q3wm" path="res://assets/Buildings/House_Hay_Stone_1.png" id="1_p5nwj"]
@@ -9,11 +9,21 @@
 [ext_resource type="Texture2D" uid="uid://bn2dwk33ifwhq" path="res://assets/Props/Shovel.png" id="7_njydo"]
 [ext_resource type="Texture2D" uid="uid://cmovqwagb2vjt" path="res://assets/Props/Crate_3.png" id="8_eto78"]
 [ext_resource type="Texture2D" uid="uid://b101vny3n1eby" path="res://Art/Props/HayStack_2.png" id="9_uyq2f"]
+[ext_resource type="Texture2D" uid="uid://b3ndhnra27dno" path="res://Art/Buildings/House_Hay_Stone_2.png" id="10_7yrr6"]
 [ext_resource type="PackedScene" uid="uid://dfmenjshm88nc" path="res://interaction_box.tscn" id="10_ni7kt"]
 [ext_resource type="PackedScene" uid="uid://drsiuvq0t0v4o" path="res://required_resources.tscn" id="11_4d2kg"]
+[ext_resource type="Texture2D" uid="uid://dvbfo6e1b4kqi" path="res://assets/Buildings/House_Snow_Stone_2.png" id="11_vf81r"]
+[ext_resource type="Texture2D" uid="uid://rm1tdbw8gukc" path="res://Art/Buildings/House_Hay_Stone_3.png" id="12_2m3d7"]
+[ext_resource type="Texture2D" uid="uid://slj71rmtuev6" path="res://assets/Buildings/House_Snow_Stone_3.png" id="13_jwjg6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plhru"]
-size = Vector2(76, 56)
+size = Vector2(76, 46.8811)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5r0f2"]
+size = Vector2(149.5, 77.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eeu4u"]
+size = Vector2(86, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_udefw"]
 size = Vector2(78, 58)
@@ -22,19 +32,6 @@ size = Vector2(78, 58)
 y_sort_enabled = true
 position = Vector2(0, 1)
 script = ExtResource("1_127kk")
-
-[node name="Normal" type="Sprite2D" parent="."]
-y_sort_enabled = true
-texture = ExtResource("1_p5nwj")
-
-[node name="Winter" type="Sprite2D" parent="."]
-y_sort_enabled = true
-position = Vector2(-1, 0)
-texture = ExtResource("2_3eiav")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 16)
-shape = SubResource("RectangleShape2D_plhru")
 
 [node name="Building" type="StaticBody2D" parent="."]
 
@@ -137,6 +134,48 @@ texture = ExtResource("9_uyq2f")
 position = Vector2(1, -7)
 scale = Vector2(0.362069, 0.362069)
 texture = ExtResource("9_uyq2f")
+
+[node name="Level1Normal" type="Sprite2D" parent="."]
+visible = false
+y_sort_enabled = true
+texture = ExtResource("1_p5nwj")
+
+[node name="Level1Winter" type="Sprite2D" parent="."]
+visible = false
+y_sort_enabled = true
+position = Vector2(-1, 0)
+texture = ExtResource("2_3eiav")
+
+[node name="Level1Collision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1, 16)
+shape = SubResource("RectangleShape2D_plhru")
+
+[node name="Level2Normal" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-34, -10)
+texture = ExtResource("10_7yrr6")
+
+[node name="Level2Winter" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-34, -10)
+texture = ExtResource("11_vf81r")
+
+[node name="Level2Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-36.75, -25.25)
+shape = SubResource("RectangleShape2D_5r0f2")
+
+[node name="Level3Normal" type="Sprite2D" parent="."]
+position = Vector2(-46, -17)
+texture = ExtResource("12_2m3d7")
+
+[node name="Level3Winter" type="Sprite2D" parent="."]
+position = Vector2(-46, -17)
+texture = ExtResource("13_jwjg6")
+
+[node name="Level3Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-69, 20)
+shape = SubResource("RectangleShape2D_eeu4u")
 
 [node name="InteractionBox" parent="." instance=ExtResource("10_ni7kt")]
 
