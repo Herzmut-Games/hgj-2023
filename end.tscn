@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxo4nggnkvmx4"]
+
+[ext_resource type="Script" path="res://end.gd" id="1_apqty"]
+[ext_resource type="Texture2D" uid="uid://hu5q3pbl0qjg" path="res://assets/9259344.jpg" id="1_tpd2w"]
+
+[node name="end" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_apqty")
+
+[node name="TextureRect" type="Sprite2D" parent="."]
+position = Vector2(245.25, 164.5)
+scale = Vector2(0.1635, 0.1635)
+texture = ExtResource("1_tpd2w")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 40.0
+offset_right = 321.0
+offset_bottom = 66.0
+text = "Schade Schokolade!"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 216.0
+offset_right = 286.0
+offset_bottom = 247.0
+text = "Nochmal"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
