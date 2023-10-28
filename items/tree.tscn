@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3gxgbey3i7et"]
+[gd_scene load_steps=8 format=3 uid="uid://b3gxgbey3i7et"]
 
 [ext_resource type="Script" path="res://items/tree.gd" id="1_368xa"]
 [ext_resource type="PackedScene" uid="uid://doa5m66fxyvyu" path="res://items/harvestable.tscn" id="2_nk8w0"]
+[ext_resource type="Texture2D" uid="uid://b65574v08xgm5" path="res://assets/Props/Chopped_Tree_1.png" id="3_gpb5q"]
 [ext_resource type="Texture2D" uid="uid://gfc7n4kg67sr" path="res://assets/Trees and Bushes/Tree_Dark_2.png" id="3_sqowp"]
 [ext_resource type="PackedScene" uid="uid://dfmenjshm88nc" path="res://interaction_box.tscn" id="4_7r6id"]
 
@@ -20,10 +21,16 @@ script = ExtResource("1_368xa")
 position = Vector2(-1, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-1, 21)
 rotation = 1.5708
 scale = Vector2(0.8, 0.8)
 shape = SubResource("CapsuleShape2D_5kggg")
+
+[node name="Stump" type="Sprite2D" parent="."]
+position = Vector2(0, 15)
+scale = Vector2(0.592994, 0.592994)
+texture = ExtResource("3_gpb5q")
 
 [node name="texture" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
@@ -32,6 +39,7 @@ texture = ExtResource("3_sqowp")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="InteractionBox" parent="." instance=ExtResource("4_7r6id")]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
 position = Vector2(-1, 21)

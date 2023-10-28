@@ -14,7 +14,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_check_hunger()
-	print(hunger_level)
 	pass
 
 func _check_hunger():
