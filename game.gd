@@ -57,9 +57,24 @@ func get_item_name(item):
 	else:
 		return "Unknown"
 
+func has_item(item, amount):
+	return items[item] >= amount
+
+# Takes dictionary of items and amounts
+func has_items(req_items):
+	for item in req_items:
+		if not has_item(item, req_items[item]):
+			return false
+	return true
+
 func inc_item(item, amount = 1):
 	items[item] += amount
 
 func dec_item(item, amount = 1):
 	if items[item] >= amount:
 		items[item] -= amount
+
+# Takes dictionary of items and amounts
+func dec_items(req_items):
+	for item in req_items:
+		dec_item(item, req_items[item])
