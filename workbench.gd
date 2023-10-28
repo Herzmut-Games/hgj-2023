@@ -8,7 +8,7 @@ extends StaticBody2D
 }
 
 @export var required_use = {
-	Game.Items.STONE: 5
+	Game.Items.STONE: Game.TOOLS_PRICE
 }
 
 func _ready():

@@ -3,7 +3,7 @@ extends Node2D
 @onready var progress_bar = $ProgressBar
 @onready var timer = $Timer
 
-@export var hunger_tickrate = 10
+@export var hunger_tickrate = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
