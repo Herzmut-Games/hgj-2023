@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://na2en2jjidkq"]
+
+[ext_resource type="Texture2D" uid="uid://cv6lvogpy0mdm" path="res://assets/Animations/Flowers_Blue.png" id="1_kifex"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_palw5"]
+atlas = ExtResource("1_kifex")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdwvl"]
+atlas = ExtResource("1_kifex")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4fpk"]
+atlas = ExtResource("1_kifex")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s80hw"]
+atlas = ExtResource("1_kifex")
+region = Rect2(288, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7eno"]
+atlas = ExtResource("1_kifex")
+region = Rect2(384, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c21q1"]
+atlas = ExtResource("1_kifex")
+region = Rect2(480, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj1ff"]
+atlas = ExtResource("1_kifex")
+region = Rect2(576, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfybx"]
+atlas = ExtResource("1_kifex")
+region = Rect2(672, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j45bc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_palw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdwvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4fpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s80hw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7eno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c21q1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nj1ff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfybx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+position = Vector2(208, 152)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_j45bc")
+autoplay = "default"
