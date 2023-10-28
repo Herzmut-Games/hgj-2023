@@ -1,9 +1,11 @@
 extends StaticBody2D
 
-@onready var timer = $Timer
+@onready var season_swap_timer = $SeasonSwapTimer
+@onready var regrow_timer = $RegrowTimer
 @onready var texture = $texture
 @onready var stump = $Stump
 
+var STONE_REGROW_WAIT = 1
 var mined = false
 
 # Season textures.
@@ -14,6 +16,9 @@ var textures = {
 	2: PreloadAssets.stone2,
 	3: PreloadAssets.stone3
 }
+
+func _ready():
+	regrow_timer.wait_time = STONE_REGROW_WAIT
 
 func _process(delta):
 	_update_season(Game.season)
@@ -30,8 +35,13 @@ func _update_season(newSeason):
 		return
 
 	# Update item texture.
-	timer.wait_time = randf_range(0, 3)
-	timer.start()
+	season_swap_timer.wait_time = randf_range(0, 3)
+	season_swap_timer.start()
+
+	if newSeason != Game.Season.WINTER:
+		regrow_timer.stop()
+	else:
+		regrow_timer.start()
 
 	season = newSeason
 
@@ -48,8 +58,18 @@ func _shake():
 	tween.play()
 
 func interact(area):
-	if area.is_in_group("player") && !mined:
+	if area.is_in_group("player") && !mined && season != Game.Season.WINTER:
 		_shake()
 		if randf_range(0, 1) > 0.8:
-			mined = true
-			Game.inc_item(Game.Items.STONE)
+			_mine()
+
+func _mine():
+	mined = true
+	Game.inc_item(Game.Items.STONE)
+
+func _grow():
+	mined = false
+
+func _on_regrow_timer_timeout():
+	if randf_range(0, 1) < 0.2:
+		_grow()
