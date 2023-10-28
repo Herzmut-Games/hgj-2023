@@ -3,10 +3,14 @@ extends Node
 enum Season { SPRING, SUMMER, FALL, WINTER }
 
 const MAX_HUNGER = 10
-const HARVEST_AMOUNT = 7
+const HARVEST_AMOUNT = 4
 
 const MAX_THIRST = 25
+const THIRST_RATE_SUMMER = 4
+const THIRST_RATE_REGULAR = 6
+
 const MAX_TOOLS = 8
+const TOOLS_PRICE = 3
 
 var season = Season.SPRING
 var hunger_level = MAX_HUNGER
@@ -56,7 +60,7 @@ func dec_thirst():
 
 	if thirst_level < 0:
 		thirst_level = 0
-		end_game()
+		end_game("verdurstet")
 
 func inc_thirst():
 	thirst_level = MAX_THIRST
@@ -69,7 +73,7 @@ func dec_hunger():
 
 	if hunger_level < 0:
 		hunger_level = 0
-		end_game()
+		end_game("verhungert")
 
 func inc_hunger(amount):
 	hunger_level += amount
@@ -80,23 +84,23 @@ func inc_hunger(amount):
 	hunger_changed.emit(hunger_level)
 
 func _fuel_changed(new_fuel):
-	if new_fuel == 0 and season == Game.Season.WINTER or season == Game.Season.FALL:
-		end_game()
+	if new_fuel == 0 and (season == Game.Season.WINTER or season == Game.Season.FALL):
+		end_game("erforen kein fuel winter/fall")
 
 func _season_changed(new_season):
-	if randf_range(0, 1) > 0.5:
+	if randf_range(0, 1) > 1:
 		thunderstorm = true
 	else:
 		thunderstorm = false
 	match new_season:
 		Game.Season.WINTER:
 			if house_level < 1:
-				end_game()
+				end_game("erfroren (kein haus)")
 			elif fuel_left == 0:
-				end_game()
+				end_game("erfroren (kein fuel winter)")
 		Game.Season.FALL:
 			if fuel_left == 0:
-				end_game()
+				end_game("erfroren (kein fuel fall)")
 
 func set_season(s):
 	if season != s:
@@ -165,5 +169,6 @@ func unlock_tools():
 	tools_unlocked = true
 	tools_changed.emit(tools)
 
-func end_game():
+func end_game(reason):
+	print(reason)
 	get_tree().change_scene_to_file("res://end.tscn")
