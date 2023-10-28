@@ -31,7 +31,7 @@ signal inventory_updated
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	self.connect("season_changed", _season_changed)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -43,6 +43,11 @@ func _tick_hunger(delta):
 	hunger_level -= hunger_rate * delta
 	if hunger_level < 0:
 		hunger_level = 0
+		end_game()
+		
+func _season_changed(season):
+	if Game.season == Game.Season.WINTER && has_house == false:
+		end_game()
 
 func set_season(s):
 	if season != s:
