@@ -28,6 +28,9 @@ func _update_season(newSeason):
 
 	season = newSeason
 
+func interact(area):
+	if area.is_in_group("player"):
+		print("bitte fäll mich")
 
 func _on_timer_timeout():
 	texture.set_texture(textures[Game.season])

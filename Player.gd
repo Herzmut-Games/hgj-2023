@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var MAX_SPEED = 100
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var interaction_area = $InteractionBox/CollisionShape2D
 
 enum {
 	RUN,
@@ -39,6 +40,7 @@ func run_state(_delta):
 		if Input.is_action_just_pressed("action"):
 			state = INTERACT
 			animated_sprite.offset.y = 8
+			interaction_area.disabled = false
 			_play_animation("action")
 
 
@@ -78,4 +80,9 @@ func _play_animation(animation_type: String) -> void:
 func _on_animated_sprite_2d_animation_finished():
 	if state == INTERACT:
 		animated_sprite.offset.y = 0
+		interaction_area.disabled = true
 		state = RUN
+
+func interact(_area):
+	print("player interaction")
+	pass

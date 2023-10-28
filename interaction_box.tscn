@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfmenjshm88nc"]
+
+[ext_resource type="Script" path="res://InteractionBox.gd" id="1_tll63"]
+
+[node name="InteractionBox" type="Area2D"]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("1_tll63")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
