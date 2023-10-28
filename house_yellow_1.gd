@@ -34,6 +34,7 @@ func interact(_area):
 		Game.has_house = true
 		building_sprite.visible = false
 		required_tooltip.visible = false
+		_season_changed(Game.season)
 
 func _season_changed(season):
 	if Game.has_house:
