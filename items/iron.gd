@@ -1,6 +1,5 @@
 extends StaticBody2D
 
-@onready var season_swap_timer = $SeasonSwapTimer
 @onready var regrow_timer = $RegrowTimer
 @onready var texture = $texture
 @onready var stump = $Stump
