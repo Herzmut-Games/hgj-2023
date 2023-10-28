@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://r1201yv7mddx"]
+[gd_scene load_steps=14 format=3 uid="uid://r1201yv7mddx"]
 
 [ext_resource type="Script" path="res://house_yellow_1.gd" id="1_127kk"]
 [ext_resource type="Texture2D" uid="uid://boa415q23q3wm" path="res://assets/Buildings/House_Hay_Stone_1.png" id="1_p5nwj"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cmovqwagb2vjt" path="res://assets/Props/Crate_3.png" id="8_eto78"]
 [ext_resource type="Texture2D" uid="uid://b101vny3n1eby" path="res://Art/Props/HayStack_2.png" id="9_uyq2f"]
 [ext_resource type="PackedScene" uid="uid://dfmenjshm88nc" path="res://interaction_box.tscn" id="10_ni7kt"]
+[ext_resource type="PackedScene" uid="uid://drsiuvq0t0v4o" path="res://required_resources.tscn" id="11_4d2kg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plhru"]
 size = Vector2(76, 56)
@@ -142,3 +143,6 @@ texture = ExtResource("9_uyq2f")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
 position = Vector2(-1, 16)
 shape = SubResource("RectangleShape2D_udefw")
+
+[node name="RequiredResources" parent="." instance=ExtResource("11_4d2kg")]
+scale = Vector2(0.3, 0.3)

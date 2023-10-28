@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://drsiuvq0t0v4o"]
+
+[ext_resource type="Script" path="res://required_resources.gd" id="1_rvqh1"]
+
+[node name="RequiredResources" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_rvqh1")
+
+[node name="ItemList" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = -30.0
+offset_top = -5.0
+offset_right = 31.0
+offset_bottom = 5.0
+allow_search = false
+auto_height = true
+text_overrun_behavior = 0

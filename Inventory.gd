@@ -3,7 +3,7 @@ extends Node2D
 var item_list
 
 var log_sprite = preload("res://assets/Props/Logs_1.png")
-var food_sprite = preload("res://assets/Props/HayStack_1.png")
+var food_sprite = preload("res://assets/Props/Plant_Pumpkin.png")
 var stone_sprite = preload("res://assets/Rocks/Rock_Brown_4.png")
 
 # Called when the node enters the scene tree for the first time.

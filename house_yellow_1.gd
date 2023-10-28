@@ -3,6 +3,7 @@ extends StaticBody2D
 @onready var winter_sprite = $Winter
 @onready var normal_sprite = $Normal
 @onready var building_sprite = $Building
+@onready var required_tooltip = $RequiredResources
 
 @export var required_wood = 5
 @export var required_stone = 0
@@ -12,6 +13,12 @@ func _ready():
 	winter_sprite.visible = false
 	normal_sprite.visible = false
 	building_sprite.visible = true
+
+	required_tooltip.visible = true
+	required_tooltip.set_required({
+		Game.Items.WOOD: required_wood,
+		Game.Items.STONE: required_stone
+	})
 
 	Game.connect("season_changed", _season_changed)
 
@@ -26,6 +33,7 @@ func interact(_area):
 
 		Game.has_house = true
 		building_sprite.visible = false
+		required_tooltip.visible = false
 
 func _season_changed(season):
 	if Game.has_house:
