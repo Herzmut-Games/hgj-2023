@@ -139,7 +139,7 @@ func burn_fuel():
 		fuel_changed.emit(fuel_left)
 
 func use_tool():
-	if tools > 0:
+	if tools_unlocked and tools > 0:
 		tools -= 1
 		tools_changed.emit(tools)
 		return true

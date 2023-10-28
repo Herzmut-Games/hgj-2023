@@ -65,7 +65,11 @@ func interact(area):
 
 func _mine():
 	mined = true
-	Game.inc_item(Game.Items.STONE)
+
+	match Game.use_tool():
+		true: Game.inc_item(Game.Items.STONE, 2)
+		false: Game.inc_item(Game.Items.STONE)
+
 
 func _grow():
 	mined = false

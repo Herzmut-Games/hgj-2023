@@ -40,7 +40,11 @@ func _season_changed(new_season):
 
 func _chop():
 	chopped = true
-	Game.inc_item(Game.Items.WOOD)
+
+	match Game.use_tool():
+		true: Game.inc_item(Game.Items.WOOD, 2)
+		false: Game.inc_item(Game.Items.WOOD)
+
 
 func _grow():
 	chopped = false
