@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://5eokmotpd0yx"]
+
+[ext_resource type="Script" path="res://items/iron.gd" id="1_4aqyj"]
+[ext_resource type="PackedScene" uid="uid://doa5m66fxyvyu" path="res://items/harvestable.tscn" id="2_alsk8"]
+[ext_resource type="Texture2D" uid="uid://dlav7jsfwniwd" path="res://assets/Buildings/CityWall_Gate_1.png" id="3_16ly8"]
+[ext_resource type="Texture2D" uid="uid://3iqpeqpf56hl" path="res://assets/Buildings/CityWall_Hole_Reverse_Stone_1.png" id="4_bdlr0"]
+[ext_resource type="PackedScene" uid="uid://dfmenjshm88nc" path="res://interaction_box.tscn" id="5_d5mpp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u8vdv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_enyjc"]
+
+[node name="Iron" type="StaticBody2D"]
+script = ExtResource("1_4aqyj")
+
+[node name="Harvestable" parent="." instance=ExtResource("2_alsk8")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+scale = Vector2(2, 1)
+shape = SubResource("CapsuleShape2D_u8vdv")
+
+[node name="texture" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_16ly8")
+
+[node name="Stump" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_bdlr0")
+
+[node name="RegrowTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="InteractionBox" parent="." instance=ExtResource("5_d5mpp")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
+position = Vector2(0, 2)
+scale = Vector2(2, 1.5)
+shape = SubResource("CapsuleShape2D_enyjc")
+
+[connection signal="timeout" from="RegrowTimer" to="." method="_on_regrow_timer_timeout"]
