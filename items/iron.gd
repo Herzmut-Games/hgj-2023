@@ -13,7 +13,7 @@ var mined = false
 func _ready():
 	regrow_timer.wait_time = IRON_REGROW_WAIT
 
-func _process(delta):
+func _process(_delta):
 	_update_season(Game.season)
 	if mined:
 		stump.visible = true

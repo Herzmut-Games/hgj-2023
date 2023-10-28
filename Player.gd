@@ -87,7 +87,7 @@ func _on_animated_sprite_2d_animation_finished():
 		interaction_area.disabled = true
 		state = RUN
 
-func season_changed(season):
+func season_changed(_season):
 	if Game.thunderstorm:
 		rain.visible = true
 		rain_filter.visible = true

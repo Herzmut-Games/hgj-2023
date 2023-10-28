@@ -5,7 +5,7 @@ extends StaticBody2D
 @onready var texture = $texture
 @onready var stump = $Stump
 
-var TREE_REGROW_WAIT = 1
+var TREE_REGROW_WAIT = 10
 var chopped = false
 
 var textures = {

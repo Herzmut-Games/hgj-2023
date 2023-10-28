@@ -8,7 +8,7 @@ func _ready():
 	anim_sprite.animation = color
 	Game.season_changed.connect(season_changed)
 
-func season_changed(season):
+func season_changed(_season):
 	if Game.thunderstorm:
 		anim_sprite.play()
 	else:
