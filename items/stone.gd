@@ -60,7 +60,7 @@ func _shake():
 func interact(area):
 	if area.is_in_group("player") && !mined && season != Game.Season.WINTER:
 		_shake()
-		if randf_range(0, 1) > 0.8:
+		if randf_range(0, 1) > 0.5:
 			_mine()
 
 func _mine():

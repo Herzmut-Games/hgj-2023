@@ -3,7 +3,9 @@ extends Node
 enum Season { SPRING, SUMMER, FALL, WINTER }
 
 const MAX_HUNGER = 10
-const MAX_THIRST = 20
+const HARVEST_AMOUNT = 7
+
+const MAX_THIRST = 25
 const MAX_TOOLS = 8
 
 var season = Season.SPRING
@@ -69,8 +71,8 @@ func dec_hunger():
 		hunger_level = 0
 		end_game()
 
-func inc_hunger():
-	hunger_level += 1
+func inc_hunger(amount):
+	hunger_level += amount
 
 	if hunger_level > MAX_HUNGER:
 		hunger_level = MAX_HUNGER

@@ -17,17 +17,17 @@ extends StaticBody2D
 @onready var required_tooltip = $RequiredResources
 
 @export var level_one_resources = {
-	Game.Items.WOOD: 0,
+	Game.Items.WOOD: 10,
 }
 
 @export var level_two_resources = {
-	Game.Items.WOOD: 0,
-	# Game.Items.STONE: 1
+	Game.Items.WOOD: 10,
+	Game.Items.STONE: 8
 }
 
 @export var level_three_resources = {
-	Game.Items.WOOD: 0,
-	# Game.Items.STONE: 2,
+	Game.Items.WOOD: 20,
+	Game.Items.STONE: 20,
 	# Game.Items.IRON: 1
 }
 

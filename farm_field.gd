@@ -22,8 +22,8 @@ func interact(area):
 		state = 0
 
 		match Game.use_tool():
-			true: Game.inc_item(Game.Items.FOOD, 10)
-			false: Game.inc_item(Game.Items.FOOD, 5)
+			true: Game.inc_item(Game.Items.FOOD, Game.HARVEST_AMOUNT * 2)
+			false: Game.inc_item(Game.Items.FOOD, Game.HARVEST_AMOUNT)
 
 
 func _season_changed(season):

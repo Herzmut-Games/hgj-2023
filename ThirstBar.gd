@@ -3,7 +3,7 @@ extends Node2D
 @onready var progress_bar = $ProgressBar
 @onready var timer = $Timer
 
-@export var thirst_tickrate = 2
+@export var thirst_tickrate = 3
 
 func _ready():
 	Game.connect("thirst_changed", _thirst_changed)

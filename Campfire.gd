@@ -7,8 +7,13 @@ func _ready():
 		Game.Items.FOOD: 1
 	})
 
-func interact(area):
-	if area.is_in_group("player"):
-		if Game.has_item(Game.Items.FOOD, 1):
-			Game.dec_item(Game.Items.FOOD)
-			Game.inc_hunger()
+func interact(_area):
+	var diff = Game.MAX_HUNGER - Game.hunger_level
+
+	if Game.has_item(Game.Items.FOOD, diff):
+		Game.dec_item(Game.Items.FOOD, diff)
+		Game.inc_hunger(diff)
+	else:
+		var curr = Game.hunger_level
+		Game.dec_item(Game.Items.FOOD, curr)
+		Game.inc_hunger(curr)
