@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://cvo4k015vvbbc"]
+[gd_scene load_steps=60 format=3 uid="uid://cvo4k015vvbbc"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_w4c37"]
 [ext_resource type="Texture2D" uid="uid://drsrti1a768ab" path="res://Art/Characters/Character/Character_Idle.png" id="2_2hbev"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d2swbw0kw3lee" path="res://Clock.tscn" id="3_y124x"]
 [ext_resource type="PackedScene" uid="uid://d1fwgigwwas5x" path="res://hunger_bar.tscn" id="5_0gf05"]
 [ext_resource type="PackedScene" uid="uid://dfmenjshm88nc" path="res://interaction_box.tscn" id="6_rlfsf"]
+[ext_resource type="PackedScene" uid="uid://g3xyjfrck5af" path="res://Inventory.tscn" id="7_0w584"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6t56l"]
 
@@ -438,6 +439,10 @@ scale = Vector2(0.0519274, 0.0519274)
 [node name="HungerBar" parent="Camera2D/CanvasLayer" instance=ExtResource("5_0gf05")]
 position = Vector2(37, 4)
 scale = Vector2(0.3, 0.3)
+
+[node name="Inventory" parent="Camera2D/CanvasLayer" instance=ExtResource("7_0w584")]
+position = Vector2(1, 32)
+scale = Vector2(0.474674, 0.474674)
 
 [node name="InteractionBox" parent="." instance=ExtResource("6_rlfsf")]
 
