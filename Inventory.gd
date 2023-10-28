@@ -9,18 +9,15 @@ var stone_sprite = preload("res://assets/Rocks/Rock_Brown_4.png")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	item_list = get_node("Control/ItemList")
+	Game.connect("inventory_updated", _render_items)
+	_render_items(Game.Inventory)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	_render_items()
-	pass
-
-func _render_items():
+func _render_items(items):
 	item_list.clear()
 
-	for i in Game.items.keys():
+	for i in items.keys():
 		var item_name = i
-		var amount = str(Game.items.get(i))
+		var amount = str(items[i])
 		var icon
 
 		match item_name:

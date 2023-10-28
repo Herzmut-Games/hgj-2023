@@ -13,10 +13,7 @@ func _ready():
 	normal_sprite.visible = false
 	building_sprite.visible = true
 
-func _process(_delta):
-	if Game.has_house:
-		_set_season_sprite()
-
+	Game.connect("season_changed", _season_changed)
 
 func interact(_area):
 	var required_resources = {
@@ -30,6 +27,7 @@ func interact(_area):
 		Game.has_house = true
 		building_sprite.visible = false
 
-func _set_season_sprite():
-	winter_sprite.visible = Game.season == Game.Season.WINTER
-	normal_sprite.visible = Game.season != Game.Season.WINTER
+func _season_changed(season):
+	if Game.has_house:
+		winter_sprite.visible = season == Game.Season.WINTER
+		normal_sprite.visible = season != Game.Season.WINTER
