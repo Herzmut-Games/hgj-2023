@@ -46,6 +46,13 @@ func _update_season(newSeason):
 
 	season = newSeason
 
+func _chop():
+	chopped = true
+	Game.inc_item(Game.Items.WOOD)
+
+func _grow():
+	chopped = false
+
 func _shake():
 	var tween = get_tree().create_tween()
 	var pos = self.position
@@ -58,8 +65,7 @@ func interact(area):
 	if area.is_in_group("player") && !chopped:
 		_shake()
 		if randf_range(0, 1) > 0.5:
-			chopped = true
-			Game.inc_item(Game.Items.WOOD)
+			_chop()
 
 func _on_timer_timeout():
 	texture.set_texture(textures[Game.season])
@@ -67,4 +73,4 @@ func _on_timer_timeout():
 
 func _on_regrow_timer_timeout():
 	if randf_range(0, 1) < 0.2:
-		chopped = false
+		_grow()

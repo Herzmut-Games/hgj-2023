@@ -84,5 +84,4 @@ func _on_animated_sprite_2d_animation_finished():
 		state = RUN
 
 func interact(_area):
-	print("player interaction")
 	pass
