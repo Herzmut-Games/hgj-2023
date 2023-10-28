@@ -97,4 +97,4 @@ func dec_items(req_items):
 	inventory_updated.emit(Inventory)
 
 func end_game():
-	get_tree().change_scene_to_file("res://level.tscn")
+	get_tree().change_scene_to_file("res://end.tscn")

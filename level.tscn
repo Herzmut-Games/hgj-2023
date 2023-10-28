@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://r1201yv7mddx" path="res://house_yellow_1.tscn" id="9_m58y2"]
 [ext_resource type="PackedScene" uid="uid://b3gxgbey3i7et" path="res://items/tree.tscn" id="10_758rq"]
 [ext_resource type="PackedScene" uid="uid://cf4h4pxrc24h8" path="res://farm_field.tscn" id="11_0sn32"]
-[ext_resource type="PackedScene" path="res://campfire.tscn" id="12_dmc8u"]
+[ext_resource type="PackedScene" uid="uid://daeod21j04orv" path="res://campfire.tscn" id="12_dmc8u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jntsd"]
 texture = ExtResource("1_u11gi")
