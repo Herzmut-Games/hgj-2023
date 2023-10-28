@@ -21,7 +21,6 @@ script = ExtResource("1_368xa")
 position = Vector2(-1, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-1, 21)
 rotation = 1.5708
 scale = Vector2(0.8, 0.8)
@@ -36,13 +35,16 @@ texture = ExtResource("3_gpb5q")
 position = Vector2(0, -8)
 texture = ExtResource("3_sqowp")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="SeasonSwapTimer" type="Timer" parent="."]
+
+[node name="RegrowTimer" type="Timer" parent="."]
+wait_time = 10.0
 
 [node name="InteractionBox" parent="." instance=ExtResource("4_7r6id")]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
 position = Vector2(-1, 21)
 shape = SubResource("CircleShape2D_bbhny")
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="SeasonSwapTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="RegrowTimer" to="." method="_on_regrow_timer_timeout"]
