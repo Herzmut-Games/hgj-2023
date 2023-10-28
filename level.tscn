@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://5eokmotpd0yx" path="res://items/iron.tscn" id="15_etynv"]
 [ext_resource type="PackedScene" uid="uid://bjclqqu4uempn" path="res://workbench.tscn" id="16_or3ec"]
 [ext_resource type="Texture2D" uid="uid://bn2dwk33ifwhq" path="res://assets/Props/Shovel.png" id="17_6l3lg"]
-[ext_resource type="PackedScene" uid="uid://dbmcap3qq0kyc" path="res://items/water.tscn" id="18_7uts8"]
+[ext_resource type="PackedScene" uid="uid://iqpytyllcc7i" path="res://items/water.tscn" id="18_7uts8"]
 [ext_resource type="PackedScene" uid="uid://c4lj71mv2e" path="res://flower.tscn" id="18_5418l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jntsd"]
