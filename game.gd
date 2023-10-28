@@ -38,6 +38,8 @@ signal hunger_changed
 signal thirst_changed
 signal tools_changed
 signal inventory_updated
+signal thunderstorm_started
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -79,6 +81,10 @@ func _fuel_changed(new_fuel):
 		end_game()
 
 func _season_changed(new_season):
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	if rng.randf_range(0, 1) > 0.5:
+		emit_signal("thunderstorm_started")
 	match new_season:
 		Game.Season.WINTER:
 			if house_level < 1:

@@ -7,6 +7,9 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var interaction_area = $InteractionBox/CollisionShape2D
 
+@onready var rain = $Camera2D/CanvasLayer/RainRect
+@onready var rain_filter = $Camera2D/CanvasLayer/RainFilter
+
 enum {
 	RUN,
 	INTERACT,
@@ -18,6 +21,8 @@ var direction = Vector2.ZERO
 var state = RUN
 
 func _ready():
+	Game.connect("thunderstorm_started", thunderstorm_started)
+	Game.connect("season_changed", season_changed)
 	_play_animation("idle")
 
 func _physics_process(delta):
@@ -82,6 +87,14 @@ func _on_animated_sprite_2d_animation_finished():
 		animated_sprite.offset.y = 0
 		interaction_area.disabled = true
 		state = RUN
+
+func thunderstorm_started():
+	rain.visible = true
+	rain_filter.visible = true
+	
+func season_changed(season):
+	rain.visible = false
+	rain_filter.visible = false
 
 func interact(_area):
 	pass
