@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://cmafiao2xn024"]
+
+[ext_resource type="Script" path="res://items/stone.gd" id="1_reyww"]
+[ext_resource type="PackedScene" uid="uid://doa5m66fxyvyu" path="res://items/harvestable.tscn" id="2_y6nif"]
+[ext_resource type="Texture2D" uid="uid://b0nftm7q2u60d" path="res://assets/Rocks/Rock_Gray_8.png" id="3_2oxv7"]
+[ext_resource type="Texture2D" uid="uid://bxe1tdc8hnjtn" path="res://assets/Rocks/Rock_Brown_3.png" id="4_w1weu"]
+[ext_resource type="PackedScene" uid="uid://dfmenjshm88nc" path="res://interaction_box.tscn" id="5_qldfx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2761d"]
+radius = 8.75
+height = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nlo35"]
+
+[node name="Stone" type="StaticBody2D"]
+script = ExtResource("1_reyww")
+
+[node name="Harvestable" parent="." instance=ExtResource("2_y6nif")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.8, 0.8)
+shape = SubResource("CapsuleShape2D_2761d")
+
+[node name="Stump" type="Sprite2D" parent="."]
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("3_2oxv7")
+
+[node name="texture" type="Sprite2D" parent="."]
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("4_w1weu")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="InteractionBox" parent="." instance=ExtResource("5_qldfx")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
+visible = false
+position = Vector2(0, 2)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_nlo35")
