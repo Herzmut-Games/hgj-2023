@@ -26,8 +26,7 @@ func interact(area):
 
 func _scoop():
 	scooped = true
-	# TODO add water.
-	Game.inc_item(Game.Items.FOOD)
+	Game.inc_item(Game.Items.WATER)
 
 func _grow():
 	scooped = false
