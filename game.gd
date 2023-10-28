@@ -43,8 +43,9 @@ func _tick_hunger(delta):
 		hunger_level = 0
 
 func set_season(s):
-	season_changed.emit(season)
-	season = s
+	if season != s:
+		season = s
+		season_changed.emit(season)
 
 func get_item_name(item):
 	if item == Items.WOOD:
