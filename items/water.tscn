@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbmcap3qq0kyc"]
+[gd_scene load_steps=5 format=3 uid="uid://iqpytyllcc7i"]
 
 [ext_resource type="Script" path="res://items/water.gd" id="1_ga43q"]
 [ext_resource type="PackedScene" uid="uid://doa5m66fxyvyu" path="res://items/harvestable.tscn" id="1_xtmud"]
@@ -12,14 +12,9 @@ script = ExtResource("1_ga43q")
 
 [node name="Harvestable" parent="." instance=ExtResource("1_xtmud")]
 
-[node name="RegrowTimer" type="Timer" parent="."]
-wait_time = 10.0
-
 [node name="InteractionBox" parent="." instance=ExtResource("2_cec5w")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
 position = Vector2(0, 2)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_fbq34")
-
-[connection signal="timeout" from="RegrowTimer" to="." method="_on_regrow_timer_timeout"]
