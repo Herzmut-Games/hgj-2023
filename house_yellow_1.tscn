@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://r1201yv7mddx"]
+[gd_scene load_steps=21 format=3 uid="uid://r1201yv7mddx"]
 
 [ext_resource type="Script" path="res://house_yellow_1.gd" id="1_127kk"]
 [ext_resource type="Texture2D" uid="uid://boa415q23q3wm" path="res://assets/Buildings/House_Hay_Stone_1.png" id="1_p5nwj"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dvbfo6e1b4kqi" path="res://assets/Buildings/House_Snow_Stone_2.png" id="11_vf81r"]
 [ext_resource type="Texture2D" uid="uid://rm1tdbw8gukc" path="res://Art/Buildings/House_Hay_Stone_3.png" id="12_2m3d7"]
 [ext_resource type="Texture2D" uid="uid://slj71rmtuev6" path="res://assets/Buildings/House_Snow_Stone_3.png" id="13_jwjg6"]
+[ext_resource type="PackedScene" uid="uid://dp7p17h5h6nn0" path="res://fuel.tscn" id="16_h4ond"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plhru"]
 size = Vector2(76, 46.8811)
@@ -185,3 +186,6 @@ shape = SubResource("RectangleShape2D_udefw")
 
 [node name="RequiredResources" parent="." instance=ExtResource("11_4d2kg")]
 scale = Vector2(0.3, 0.3)
+
+[node name="Fuel" parent="." instance=ExtResource("16_h4ond")]
+position = Vector2(55, 29)

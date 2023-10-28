@@ -4,10 +4,9 @@ enum Season { SPRING, SUMMER, FALL, WINTER }
 
 var season = Season.SPRING
 var hunger_level = 10
-
 var hunger_rate = 0.1
-
 var house_level = 0
+var fuel_left = 5
 
 enum Items {
 	WOOD, STONE, IRON, FOOD, WATER
@@ -28,11 +27,13 @@ var tree2 = preload("res://assets/Trees and Bushes/Tree_Red_2.png")
 var tree3 = preload("res://assets/Trees and Bushes/Tree_Snow_2.png")
 
 signal season_changed
+signal fuel_changed
 signal inventory_updated
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.connect("season_changed", _season_changed)
+	self.connect("fuel_changed", _fuel_changed)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -46,9 +47,20 @@ func _tick_hunger(delta):
 		hunger_level = 0
 		end_game()
 
-func _season_changed(new_season):
-	if new_season == Game.Season.WINTER && house_level < 1:
+func _fuel_changed(new_fuel):
+	if new_fuel == 0 and season == Game.Season.WINTER or season == Game.Season.FALL:
 		end_game()
+
+func _season_changed(new_season):
+	match new_season:
+		Game.Season.WINTER:
+			if house_level < 1:
+				end_game()
+			elif fuel_left == 0:
+				end_game()
+		Game.Season.FALL:
+			if fuel_left == 0:
+				end_game()
 
 func set_season(s):
 	if season != s:
@@ -56,16 +68,13 @@ func set_season(s):
 		season_changed.emit(season)
 
 func get_item_name(item):
-	if item == Items.WOOD:
-		return "Wood"
-	elif item == Items.STONE:
-		return "Stone"
-	elif item == Items.FOOD:
-		return "Food"
-	elif item == Items.WATER:
-		return "Water"
-	else:
-		return "Unknown"
+	match item:
+		Items.WOOD: 	return "Holz"
+		Items.STONE: 	return "Steine"
+		Items.FOOD: 	return "Essen"
+		Items.WATER: 	return "Wasser"
+		Items.IRON: 	return "Eisen"
+		_: 				return "Unknown"
 
 func inc_hunger(amount = 1):
 	hunger_level += amount
@@ -96,6 +105,15 @@ func dec_items(req_items):
 		if Inventory[item] >= amount:
 			Inventory[item] -= amount
 	inventory_updated.emit(Inventory)
+
+func add_fuel():
+	fuel_left += 1
+	fuel_changed.emit(fuel_left)
+
+func burn_fuel():
+	if fuel_left > 0:
+		fuel_left -= 1
+		fuel_changed.emit(fuel_left)
 
 func end_game():
 	get_tree().change_scene_to_file("res://end.tscn")

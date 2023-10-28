@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://dp7p17h5h6nn0"]
+
+[ext_resource type="Script" path="res://fuel.gd" id="1_0homc"]
+[ext_resource type="Texture2D" uid="uid://xdqhbh7m5eao" path="res://assets/Props/Logs_1.png" id="1_fscoh"]
+[ext_resource type="PackedScene" uid="uid://dfmenjshm88nc" path="res://interaction_box.tscn" id="2_lv8vb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofo51"]
+size = Vector2(20.7143, 23.5714)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkr40"]
+size = Vector2(26, 25)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oitag"]
+bg_color = Color(0.898039, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Fuel" type="StaticBody2D"]
+script = ExtResource("1_0homc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fscoh")
+
+[node name="InteractionBox" parent="." instance=ExtResource("2_lv8vb")]
+position = Vector2(28.9271, 37.3942)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
+position = Vector2(-29.4271, -36.8942)
+scale = Vector2(1.4, 1.4)
+shape = SubResource("RectangleShape2D_ofo51")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_dkr40")
+
+[node name="FuelTick" type="Timer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -11.0
+offset_top = -23.0
+offset_right = 10.0
+offset_bottom = -19.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_oitag")
+max_value = 5.0
+step = 1.0
+value = 5.0
+show_percentage = false
+
+[node name="FuelDisplay" type="ItemList" parent="."]
+offset_left = -12.0
+offset_top = -40.0
+offset_right = 68.0
+offset_bottom = 4.0
+scale = Vector2(0.3, 0.3)
+
+[connection signal="timeout" from="FuelTick" to="." method="_on_fuel_tick_timeout"]

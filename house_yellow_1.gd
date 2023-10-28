@@ -8,6 +8,7 @@ extends StaticBody2D
 @onready var level_2_normal_sprite = $Level2Normal
 @onready var level_2_winter_sprite = $Level2Winter
 @onready var level_2_collision = $Level2Collision
+@onready var fuel_pile = $Fuel
 
 @onready var level_3_normal_sprite = $Level3Normal
 @onready var level_3_winter_sprite = $Level3Winter
@@ -16,18 +17,18 @@ extends StaticBody2D
 @onready var required_tooltip = $RequiredResources
 
 @export var level_one_resources = {
-	Game.Items.WOOD: 1,
+	Game.Items.WOOD: 0,
 }
 
 @export var level_two_resources = {
-	Game.Items.WOOD: 2,
-	Game.Items.STONE: 1
+	Game.Items.WOOD: 0,
+	# Game.Items.STONE: 1
 }
 
 @export var level_three_resources = {
-	Game.Items.WOOD: 3,
-	Game.Items.STONE: 2,
-	Game.Items.IRON: 1
+	Game.Items.WOOD: 0,
+	# Game.Items.STONE: 2,
+	# Game.Items.IRON: 1
 }
 
 func _ready():
@@ -65,6 +66,9 @@ func _season_changed(season):
 	_hide_all_sprites()
 	_set_collision()
 
+	if Game.house_level > 1:
+		fuel_pile.visible = true
+
 	match season:
 		Game.Season.WINTER:
 			match Game.house_level:
@@ -89,6 +93,7 @@ func _hide_all_sprites():
 
 	level_2_normal_sprite.visible = false
 	level_2_winter_sprite.visible = false
+	fuel_pile.visible = false
 
 	level_3_normal_sprite.visible = false
 	level_3_winter_sprite.visible = false
