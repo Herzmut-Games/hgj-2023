@@ -185,3 +185,5 @@ shape = SubResource("RectangleShape2D_16qmn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
 position = Vector2(20, -14)
 shape = SubResource("CircleShape2D_nh3l8")
+
+[node name="Node2D" type="Node2D" parent="."]
