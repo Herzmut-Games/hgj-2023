@@ -52,3 +52,10 @@ func get_item_name(item):
 		return "Food"
 	else:
 		return "Unknown"
+
+func inc_item(item, amount = 1):
+	items[item] += amount
+
+func dec_item(item, amount = 1):
+	if items[item] >= amount:
+		items[item] -= amount
