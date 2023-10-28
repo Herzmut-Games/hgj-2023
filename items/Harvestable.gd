@@ -16,7 +16,7 @@ var harvestable = true
 func _ready():
 	pass
 
-func _process(delta):
+func _process(_delta):
 	_update_season(Game.season)
 
 # _update_season sets the items season.
