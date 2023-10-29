@@ -38,7 +38,7 @@ func _physics_process(delta):
 func run_state(_delta):
 	if state == RUN:
 		calc_interaction()
-		footstep_player.play()
+
 		var input_vector = Vector2.ZERO
 		input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 		input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
@@ -48,13 +48,15 @@ func run_state(_delta):
 			direction_vector = input_vector
 			velocity = velocity.lerp(direction_vector * MAX_SPEED, ACCELERATION)
 			_play_animation("walk")
+			if !footstep_player.playing:
+				footstep_player.play()
 		else:
 			velocity = velocity.lerp(Vector2.ZERO, FRICTION)
 			_play_animation("idle")
 		if Input.is_action_just_pressed("action"):
 			state = INTERACT
 			animated_sprite.offset.y = 8
-			interaction_area.disabled = false
+			interaction_area.disabled = false 
 			_play_animation("action")
 
 
