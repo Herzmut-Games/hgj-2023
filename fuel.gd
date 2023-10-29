@@ -30,9 +30,15 @@ func _ready():
 
 
 func interact(_area):
-	if Game.has_item(Game.Items.WOOD, 1):
-		Game.dec_item(Game.Items.WOOD)
-		Game.add_fuel()
+	if Game.has_item(Game.Items.WOOD, 3):
+		Game.dec_item(Game.Items.WOOD, 3)
+		Game.add_fuel(3)
+		return
+
+	var curr = Game.get_item_count(Game.Items.WOOD)
+	if curr > 0:
+		Game.dec_item(Game.Items.WOOD, curr)
+		Game.add_fuel(curr)
 
 func _on_season_changed(season):
 	if Game.house_level < 2:

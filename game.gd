@@ -146,7 +146,7 @@ func _year_changed(new_year):
 
 func _house_changed(new_level):
 	match new_level:
-		2: send_notify("Ist ja eigentlich ganz nett hier, glaube wenn ich das Haus ausbause bin ich hier ganz glücklich")
+		2: send_notify("Jetzt hab ich einen Kamin, in Herbst und Winter muss ich auf jeden Fall Holz bereit haben")
 
 var summer_info_seen = false
 
@@ -229,8 +229,8 @@ func dec_items(req_items):
 			Inventory[item] -= amount
 	inventory_updated.emit(Inventory)
 
-func add_fuel():
-	fuel_left += 1
+func add_fuel(amount):
+	fuel_left += amount
 	fuel_changed.emit(fuel_left)
 
 func burn_fuel():

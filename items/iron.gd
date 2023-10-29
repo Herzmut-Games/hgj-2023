@@ -13,7 +13,7 @@ func _shake():
 	tween.play()
 
 func interact(_area):
-	if not info_seen:
+	if not info_seen and not Game.tools_unlocked:
 		info_seen = true
 		Game.send_notify("Mit dem richtigen Werkzeug könnte ich vielleicht etwas Eisen abbauen")
 		return
