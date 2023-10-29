@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://iqpytyllcc7i"]
+[gd_scene load_steps=6 format=3 uid="uid://iqpytyllcc7i"]
 
 [ext_resource type="Script" path="res://items/water.gd" id="1_ga43q"]
 [ext_resource type="PackedScene" uid="uid://doa5m66fxyvyu" path="res://items/harvestable.tscn" id="1_xtmud"]
 [ext_resource type="PackedScene" uid="uid://dfmenjshm88nc" path="res://interaction_box.tscn" id="2_cec5w"]
+[ext_resource type="AudioStream" uid="uid://bkc3oww1cqcy0" path="res://assets/audio/Drink_02.wav" id="4_6jw3a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbq34"]
 size = Vector2(16, 16)
@@ -18,3 +19,7 @@ script = ExtResource("1_ga43q")
 position = Vector2(0, 2)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_fbq34")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_6jw3a")
+volume_db = 24.0

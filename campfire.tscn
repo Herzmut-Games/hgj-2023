@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://kn0amdp3badh"]
+[gd_scene load_steps=18 format=3 uid="uid://kn0amdp3badh"]
 
 [ext_resource type="Script" path="res://Campfire.gd" id="1_p7meb"]
 [ext_resource type="Texture2D" uid="uid://c4hktlof8aeub" path="res://assets/Animations/Campfire.png" id="2_42tbq"]
 [ext_resource type="PackedScene" uid="uid://dfmenjshm88nc" path="res://interaction_box.tscn" id="3_3mqav"]
 [ext_resource type="PackedScene" uid="uid://drsiuvq0t0v4o" path="res://required_resources.tscn" id="4_81xwx"]
+[ext_resource type="AudioStream" uid="uid://ddjsvvh65a6rc" path="res://assets/audio/fireplace.wav" id="5_wx6dn"]
+[ext_resource type="AudioStream" uid="uid://brrm530yy6wa1" path="res://assets/audio/crunch.1.ogg" id="6_m8aiq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_51g1w"]
 radius = 16.0
@@ -95,3 +97,12 @@ shape = SubResource("CircleShape2D_ppnjt")
 offset_top = -25.0
 offset_bottom = -25.0
 scale = Vector2(0.5, 0.5)
+
+[node name="FirePlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_wx6dn")
+autoplay = true
+max_distance = 100.0
+
+[node name="EatPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_m8aiq")
+volume_db = -5.0

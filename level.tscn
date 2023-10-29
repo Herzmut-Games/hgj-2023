@@ -9653,6 +9653,7 @@ texture = ExtResource("17_6l3lg")
 [node name="WaterPlayer" type="AudioStreamPlayer2D" parent="Water"]
 position = Vector2(956, 65)
 stream = ExtResource("17_ifmb5")
+volume_db = -2.0
 autoplay = true
 max_distance = 400.0
 

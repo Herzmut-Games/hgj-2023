@@ -4,6 +4,7 @@ extends StaticBody2D
 @onready var regrow_timer = $RegrowTimer
 @onready var texture = $texture
 @onready var stump = $Stump
+@onready var player = $AudioStreamPlayer
 
 var TREE_REGROW_WAIT = 10
 var chopped = false
@@ -59,6 +60,7 @@ func _shake():
 
 func interact(area):
 	if area.is_in_group("player") && !chopped:
+		player.play()
 		_shake()
 		if randf_range(0, 1) > 0.5:
 			_chop()
