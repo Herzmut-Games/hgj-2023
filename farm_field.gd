@@ -21,7 +21,6 @@ func interact(_area):
 	if not seen_info:
 		seen_info = true
 		Game.send_notify("Hier könnte man etwas anbauen, ich glaube aber nicht dass irgendeine Pflanze den Winter überleben würde.")
-		pass
 
 	if Game.season != Game.Season.WINTER && state == 0:
 		state += 1

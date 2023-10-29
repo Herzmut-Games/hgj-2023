@@ -21,7 +21,7 @@ extends StaticBody2D
 }
 
 @export var level_two_resources = {
-	Game.Items.WOOD: 30,
+	Game.Items.WOOD: 25,
 	Game.Items.STONE: 7
 }
 
@@ -49,7 +49,6 @@ func interact(_area):
 	if not seen_info:
 		seen_info = true
 		Game.send_notify("Mit einem Haus könnte ich besser durch den Winter kommen..")
-		return
 
 	if Game.house_level >= 3:
 		return
