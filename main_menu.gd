@@ -8,5 +8,4 @@ func _on_button_pressed():
 
 
 func _on_check_box_toggled(button_pressed):
-	print(button_pressed)
 	Game.reduced_visuals = button_pressed

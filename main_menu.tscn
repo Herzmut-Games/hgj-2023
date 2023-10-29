@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bs0nen0neofhj"]
 
-[ext_resource type="Texture2D" uid="uid://hu5q3pbl0qjg" path="res://assets/9259344.jpg" id="1_soj4m"]
 [ext_resource type="Script" path="res://main_menu.gd" id="1_yjr37"]
+[ext_resource type="Texture2D" uid="uid://0j01lq76hrh6" path="res://assets/background.png" id="2_b7y3a"]
 [ext_resource type="FontFile" uid="uid://or1ir2y2kqgd" path="res://assets/monogram-extended.ttf" id="3_i4p74"]
 
 [node name="main_menu" type="Control"]
@@ -15,37 +15,51 @@ script = ExtResource("1_yjr37")
 
 [node name="Sprite2D" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 11926.0
-offset_bottom = 7951.0
+offset_right = 11851.0
+offset_bottom = 7901.0
 scale = Vector2(0.162, 0.162)
-texture = ExtResource("1_soj4m")
+texture = ExtResource("2_b7y3a")
+stretch_mode = 4
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 856.0
-offset_top = 760.0
-offset_right = 1093.0
-offset_bottom = 920.0
+offset_left = 763.0
+offset_top = 923.0
+offset_right = 1195.0
+offset_bottom = 1083.0
 theme_override_fonts/font = ExtResource("3_i4p74")
 theme_override_font_sizes/font_size = 64
 text = "Start"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 328.0
-offset_top = 64.0
-offset_right = 1624.0
-offset_bottom = 171.0
+offset_left = 31.0
+offset_top = -73.0
+offset_right = 607.0
+offset_bottom = 346.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_i4p74")
-theme_override_font_sizes/font_size = 128
-text = "Servuus zu useren mega Game"
+theme_override_font_sizes/font_size = 480
+text = "UWE"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 264.0
+offset_right = 682.0
+offset_bottom = 371.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_i4p74")
+theme_override_font_sizes/font_size = 64
+text = "Das U ist fast ein Kreis"
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 768.0
-offset_top = 928.0
-offset_right = 1192.0
-offset_bottom = 1016.0
+offset_left = 31.0
+offset_top = 991.0
+offset_right = 455.0
+offset_bottom = 1079.0
 
 [node name="CheckBox" type="CheckBox" parent="Panel"]
 layout_mode = 0

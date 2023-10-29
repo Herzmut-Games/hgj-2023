@@ -5,6 +5,7 @@ extends Control
 var log_sprite = preload("res://assets/Props/Logs_1.png")
 var food_sprite = preload("res://assets/Props/Plant_Pumpkin.png")
 var stone_sprite = preload("res://assets/Rocks/Rock_Brown_4.png")
+var iron_sprite = preload("res://assets/Rocks/Rock_Gray_4.png")
 
 var bobble_distance = 10
 
@@ -39,5 +40,7 @@ func set_required_icons(items):
 				icon = stone_sprite
 			Game.Items.FOOD:
 				icon = food_sprite
+			Game.Items.IRON:
+				icon = iron_sprite
 
 		item_list.add_icon_item(icon, false)
