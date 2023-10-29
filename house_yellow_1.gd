@@ -28,7 +28,7 @@ extends StaticBody2D
 @export var level_three_resources = {
 	Game.Items.WOOD: 20,
 	Game.Items.STONE: 20,
-	# Game.Items.IRON: 1
+	Game.Items.IRON: 3
 }
 
 var seen_info = false
