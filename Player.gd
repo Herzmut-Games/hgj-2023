@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var interaction_area = $InteractionBox/CollisionShape2D
 
 @onready var rain = $Camera2D/CanvasLayer/RainRect
+@onready var snow = $Camera2D/CanvasLayer/SnowRect
 @onready var rain_filter = $Camera2D/CanvasLayer/RainFilter
 @onready var notify_label = $Camera2D/CanvasLayer/PanelContainer
 @onready var notify_rtl = $Camera2D/CanvasLayer/PanelContainer/MarginContainer/RichTextLabel
@@ -117,15 +118,20 @@ func _on_animated_sprite_2d_animation_finished():
 		interaction_area.disabled = true
 		state = RUN
 
-func season_changed(_season):
+func season_changed(season):
 	if Game.thunderstorm:
-		if !Game.reduced_visuals:
-			rain.visible = true
+		if season == Game.Season.WINTER:
+			if !Game.reduced_visuals:
+				snow.visible = true
+		else:
+			thunderstorm_player.play()
+			if !Game.reduced_visuals:
+				rain.visible = true
 		rain_filter.visible = true
-		thunderstorm_player.play()
 	else:
 		rain.visible = false
 		rain_filter.visible = false
+		snow.visible = false
 		thunderstorm_player.stop()
 
 func interact(_area):

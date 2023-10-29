@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://cvo4k015vvbbc"]
+[gd_scene load_steps=66 format=3 uid="uid://cvo4k015vvbbc"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_w4c37"]
 [ext_resource type="Texture2D" uid="uid://drsrti1a768ab" path="res://Art/Characters/Character/Character_Idle.png" id="2_2hbev"]
@@ -423,6 +423,15 @@ shader_parameter/blur = 0.0025
 shader_parameter/colour = Color(1, 1, 1, 1)
 shader_parameter/size = Vector2(0.01, 0.1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iqv5q"]
+shader = ExtResource("8_pf26w")
+shader_parameter/count = 50
+shader_parameter/slant = 0.1
+shader_parameter/speed = 25.0
+shader_parameter/blur = 0.0005
+shader_parameter/colour = Color(1, 1, 1, 1)
+shader_parameter/size = Vector2(0.02, 0.04)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5icmi"]
 size = Vector2(20, 26)
 
@@ -451,6 +460,12 @@ visible = false
 material = SubResource("ShaderMaterial_am18p")
 offset_right = 1941.0
 offset_bottom = 1097.0
+
+[node name="SnowRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_iqv5q")
+offset_right = 3841.0
+offset_bottom = 2302.0
 
 [node name="RainFilter" type="ColorRect" parent="Camera2D/CanvasLayer"]
 visible = false

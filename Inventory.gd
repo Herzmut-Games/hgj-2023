@@ -29,4 +29,4 @@ func _render_items(items):
 			Game.Items.FOOD:
 				icon = food_sprite
 
-		item_list.add_item(Game.get_item_name(item_name) + ": " + amount, icon, false)
+		item_list.add_item("%7s" % Game.get_item_name(item_name) + ": " + amount, icon, false)
