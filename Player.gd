@@ -13,6 +13,7 @@ extends CharacterBody2D
 @onready var notify_rtl = $Camera2D/CanvasLayer/PanelContainer/MarginContainer/RichTextLabel
 @onready var notify_timer = $NotifyTimer
 @onready var thunderstorm_player = $ThunderstormPlayer
+@onready var footstep_player = $FootstepPlayer
 
 enum {
 	RUN,
@@ -35,6 +36,7 @@ func _physics_process(delta):
 func run_state(_delta):
 	if state == RUN:
 		calc_interaction()
+		footstep_player.play()
 		var input_vector = Vector2.ZERO
 		input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 		input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
