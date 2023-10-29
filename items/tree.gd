@@ -5,6 +5,7 @@ extends StaticBody2D
 @onready var texture = $texture
 @onready var stump = $Stump
 @onready var player = $AudioStreamPlayer
+@onready var collision = $CollisionShape2D
 
 var TREE_REGROW_WAIT = 10
 var chopped = false
@@ -24,9 +25,11 @@ func _process(_delta):
 	if chopped:
 		stump.visible = true
 		texture.visible = false
+		collision.scale = Vector2(0.5, 0.5)
 	else:
 		stump.visible = false
 		texture.visible = true
+		collision.scale = Vector2(0.8, 0.8)
 
 # _update_season sets the items season.
 func _season_changed(new_season):
