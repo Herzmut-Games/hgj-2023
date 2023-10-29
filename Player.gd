@@ -30,6 +30,8 @@ func _ready():
 	Game.notify.connect(notify)
 	_play_animation("idle")
 
+	Game.send_notify("Hä, wo bin ich und was hat das mit überleben, Pfeil- und Leertasten zu tun??")
+
 func _physics_process(delta):
 	run_state(delta)
 
@@ -131,7 +133,7 @@ func notify(text):
 	notify_rtl.clear()
 	notify_rtl.add_text(text)
 	notify_timer.start()
-	
+
 
 func _on_notify_timer_timeout():
 	notify_label.visible = false
