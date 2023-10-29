@@ -28,6 +28,7 @@ var tools = 0
 var tools_unlocked = false
 
 var thunderstorm = false
+var reduced_visuals = false
 
 enum Items {
 	WOOD, STONE, IRON, FOOD

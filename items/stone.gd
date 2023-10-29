@@ -20,7 +20,7 @@ var textures = {
 func _ready():
 	regrow_timer.wait_time = STONE_REGROW_WAIT
 
-func _process(delta):
+func _process(_delta):
 	_update_season(Game.season)
 	if mined:
 		stump.visible = true

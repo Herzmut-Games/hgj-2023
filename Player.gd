@@ -65,7 +65,7 @@ func run_state(_delta):
 		pass
 
 func calc_interaction():
-	var direction = _get_direction_string(direction_vector.angle())
+	direction = _get_direction_string(direction_vector.angle())
 	if direction == "left":
 		interaction_area.position.x = -13
 		interaction_area.position.y = 9
@@ -119,7 +119,8 @@ func _on_animated_sprite_2d_animation_finished():
 
 func season_changed(_season):
 	if Game.thunderstorm:
-		rain.visible = true
+		if !Game.reduced_visuals:
+			rain.visible = true
 		rain_filter.visible = true
 		thunderstorm_player.play()
 	else:

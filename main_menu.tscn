@@ -23,9 +23,9 @@ texture = ExtResource("1_soj4m")
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
 offset_left = 856.0
-offset_top = 840.0
+offset_top = 760.0
 offset_right = 1093.0
-offset_bottom = 1000.0
+offset_bottom = 920.0
 theme_override_fonts/font = ExtResource("3_i4p74")
 theme_override_font_sizes/font_size = 64
 text = "Start"
@@ -40,4 +40,22 @@ theme_override_fonts/font = ExtResource("3_i4p74")
 theme_override_font_sizes/font_size = 128
 text = "Servuus zu useren mega Game"
 
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 928.0
+offset_right = 1192.0
+offset_bottom = 1016.0
+
+[node name="CheckBox" type="CheckBox" parent="Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 404.0
+offset_bottom = 68.0
+theme_override_fonts/font = ExtResource("3_i4p74")
+theme_override_font_sizes/font_size = 64
+text = "Reduced visuals"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="toggled" from="Panel/CheckBox" to="." method="_on_check_box_toggled"]
