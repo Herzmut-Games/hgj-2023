@@ -20,7 +20,6 @@ func interact(_area):
 	if not seen_info:
 		seen_info = true
 		Game.send_notify("Mit ein paar Werkzeugen wäre ich vermutlich effizienter")
-		pass
 
 	if not Game.tools_unlocked and Game.has_items(required_build):
 		Game.dec_items(required_build)

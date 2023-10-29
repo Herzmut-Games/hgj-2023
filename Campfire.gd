@@ -14,7 +14,6 @@ func interact(_area):
 	if not seen_info:
 		seen_info = true
 		Game.send_notify("Gegrillter Kürbis ist mein Leibgericht")
-		return
 
 	var diff = Game.MAX_HUNGER - Game.hunger_level
 
