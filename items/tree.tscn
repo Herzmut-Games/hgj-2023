@@ -8,7 +8,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5kggg"]
 radius = 8.75
-height = 20.0
+height = 27.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bbhny"]
 
@@ -21,18 +21,17 @@ script = ExtResource("1_368xa")
 position = Vector2(-1, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 21)
-rotation = 1.5708
+position = Vector2(0, 11)
 scale = Vector2(0.8, 0.8)
 shape = SubResource("CapsuleShape2D_5kggg")
 
 [node name="Stump" type="Sprite2D" parent="."]
-position = Vector2(0, 15)
+position = Vector2(0, 14)
 scale = Vector2(0.592994, 0.592994)
 texture = ExtResource("3_gpb5q")
 
 [node name="texture" type="Sprite2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -9)
 texture = ExtResource("3_sqowp")
 
 [node name="SeasonSwapTimer" type="Timer" parent="."]
@@ -41,6 +40,7 @@ texture = ExtResource("3_sqowp")
 wait_time = 10.0
 
 [node name="InteractionBox" parent="." instance=ExtResource("4_7r6id")]
+position = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
 position = Vector2(-1, 21)
