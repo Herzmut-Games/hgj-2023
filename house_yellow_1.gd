@@ -21,12 +21,12 @@ extends StaticBody2D
 }
 
 @export var level_two_resources = {
-	Game.Items.WOOD: 10,
-	Game.Items.STONE: 6
+	Game.Items.WOOD: 30,
+	Game.Items.STONE: 7
 }
 
 @export var level_three_resources = {
-	Game.Items.WOOD: 20,
+	Game.Items.WOOD: 30,
 	Game.Items.STONE: 20,
 	Game.Items.IRON: 3
 }
