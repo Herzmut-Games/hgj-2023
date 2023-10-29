@@ -105,7 +105,7 @@ func _year_changed(new_year):
 var summer_info_seen = false
 
 func _season_changed(new_season):
-	if randf_range(0, 1) < THUNDERSTORM_CHANCE:
+	if randf_range(0, 1) < THUNDERSTORM_CHANCE && new_season != Game.Season.SUMMER:
 		thunderstorm = true
 	else:
 		thunderstorm = false
