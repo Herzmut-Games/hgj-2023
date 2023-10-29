@@ -2,6 +2,16 @@ extends Node
 
 enum Season { SPRING, SUMMER, FALL, WINTER }
 
+enum DeathReason {
+	HUNGER,
+	THIRST,
+	FREEZE_HOUSE,
+	FREEZE_FUEL
+}
+
+enum Items {
+	WOOD, STONE, IRON, FOOD
+}
 const MAX_HUNGER = 10
 const HARVEST_AMOUNT = 4
 
@@ -30,9 +40,6 @@ var tools_unlocked = false
 var thunderstorm = false
 var reduced_visuals = false
 
-enum Items {
-	WOOD, STONE, IRON, FOOD
-}
 
 var Inventory = {
 	Items.WOOD: 0,
@@ -40,6 +47,8 @@ var Inventory = {
 	Items.IRON: 0,
 	Items.FOOD: 0,
 }
+
+var death_by = null
 
 var stone_info_seen = false
 var water_info_seen = false
@@ -74,7 +83,7 @@ func dec_thirst():
 
 	if thirst_level < 0:
 		thirst_level = 0
-		end_game("verdurstet")
+		end_game(DeathReason.THIRST)
 
 func inc_thirst():
 	thirst_level = MAX_THIRST
@@ -87,7 +96,7 @@ func dec_hunger():
 
 	if hunger_level < 0:
 		hunger_level = 0
-		end_game("verhungert")
+		end_game(DeathReason.HUNGER)
 
 func inc_hunger(amount):
 	hunger_level += amount
@@ -99,7 +108,7 @@ func inc_hunger(amount):
 
 func _fuel_changed(new_fuel):
 	if new_fuel == 0 and (season == Game.Season.WINTER or season == Game.Season.FALL):
-		end_game("erfroren kein fuel winter/fall")
+		end_game(DeathReason.FREEZE_FUEL)
 
 func _year_changed(new_year):
 	match new_year:
@@ -126,15 +135,15 @@ func _season_changed(new_season):
 				summer_info_seen = true
 		Game.Season.WINTER:
 			if house_level < 1:
-				end_game("erfroren (kein haus)")
+				end_game(DeathReason.FREEZE_HOUSE)
 			if year >= COLD_YEARS_START and fuel_left == 0:
-				end_game("erfroren (kein fuel winter)")
+				end_game(DeathReason.FREEZE_FUEL)
 			_check_thunderstorm()
 		Game.Season.FALL:
 			if house_level < 1:
 				send_notify("Ich glaube der Winter wird kalt...")
 			if year >= COLD_YEARS_START and fuel_left == 0:
-				end_game("erfroren (kein fuel fall)")
+				end_game(DeathReason.FREEZE_FUEL)
 			_check_thunderstorm()
 
 func _check_thunderstorm():
@@ -222,5 +231,5 @@ func _bump_year():
 
 
 func end_game(reason):
-	print(reason)
+	death_by = reason
 	get_tree().change_scene_to_file("res://end.tscn")
