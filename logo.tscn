@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5oe6v3wf1m7p"]
+
+[ext_resource type="Script" path="res://logo.gd" id="1_de4wk"]
+[ext_resource type="Texture2D" uid="uid://qkxb0y7qk1qm" path="res://assets/logo.png" id="1_fv47l"]
+[ext_resource type="AudioStream" uid="uid://b5bln5kmxjxvj" path="res://assets/audio/bling.mp3" id="3_wyghm"]
+[ext_resource type="FontFile" uid="uid://or1ir2y2kqgd" path="res://assets/monogram-extended.ttf" id="4_w3kpd"]
+
+[node name="logo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_de4wk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 2040.0
+offset_bottom = 1128.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(968, 448)
+texture = ExtResource("1_fv47l")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wyghm")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 16.0
+offset_top = 672.0
+offset_right = 1920.0
+offset_bottom = 788.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_w3kpd")
+theme_override_font_sizes/font_size = 48
+text = "a game by
+Marv, Schmobert, Alex, Lars und Joshi
+for
+Hetzner Game JAm 2023"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Timer3" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]

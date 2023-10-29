@@ -44,6 +44,7 @@ theme_override_font_sizes/font_size = 480
 text = "UWE"
 
 [node name="Label2" type="Label" parent="."]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 264.0
 offset_right = 682.0

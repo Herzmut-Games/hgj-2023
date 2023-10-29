@@ -49,7 +49,7 @@ height = 22.0
 size = Vector2(37, 34)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nh3l8"]
-radius = 55.0364
+radius = 39.0128
 
 [node name="Workbench" type="StaticBody2D"]
 y_sort_enabled = true
@@ -184,7 +184,7 @@ shape = SubResource("RectangleShape2D_16qmn")
 [node name="InteractionBox" parent="." instance=ExtResource("15_qqpqn")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
-position = Vector2(17, -10)
+position = Vector2(20, -14)
 shape = SubResource("CircleShape2D_nh3l8")
 
 [node name="Node2D" type="Node2D" parent="."]
