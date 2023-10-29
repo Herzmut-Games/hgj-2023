@@ -118,6 +118,9 @@ func get_item_name(item):
 		Items.IRON: 	return "Eisen"
 		_: 				return "Unknown"
 
+func get_item_count(item):
+	return Inventory[item]
+
 func has_item(item, amount):
 	return Inventory[item] >= amount
 
@@ -171,7 +174,7 @@ func add_tools():
 func unlock_tools():
 	tools_unlocked = true
 	tools_changed.emit(tools)
-	
+
 func send_notify(text):
 	notify.emit(text)
 
