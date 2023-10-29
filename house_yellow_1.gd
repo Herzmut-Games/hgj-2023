@@ -31,6 +31,8 @@ extends StaticBody2D
 	# Game.Items.IRON: 1
 }
 
+var seen_info = false
+
 func _ready():
 	# State at game start, for sanity
 	_hide_all_sprites()
@@ -44,6 +46,11 @@ func _ready():
 	Game.connect("season_changed", _season_changed)
 
 func interact(_area):
+	if not seen_info:
+		seen_info = true
+		Game.send_notify("Mit einem Haus könnte ich besser durch den Winter kommen..")
+		pass
+
 	if Game.house_level >= 3:
 		return
 
@@ -67,7 +74,7 @@ func _season_changed(season):
 	_set_collision()
 
 	if Game.house_level > 1:
-		fuel_pile.visible = true
+		fuel_pile.enable()
 
 	match season:
 		Game.Season.WINTER:
@@ -93,7 +100,7 @@ func _hide_all_sprites():
 
 	level_2_normal_sprite.visible = false
 	level_2_winter_sprite.visible = false
-	fuel_pile.visible = false
+	fuel_pile.disable()
 
 	level_3_normal_sprite.visible = false
 	level_3_winter_sprite.visible = false

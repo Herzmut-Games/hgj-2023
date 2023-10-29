@@ -5,6 +5,7 @@ var log_sprite = preload("res://assets/Props/Logs_1.png")
 @onready var fuel_tick = $FuelTick
 @onready var progress = $ProgressBar
 @onready var fuel_display = $FuelDisplay
+@onready var collision = $CollisionShape2D
 
 const STATE_MAX = 5
 
@@ -52,7 +53,6 @@ func _on_fuel_tick_timeout():
 
 		Game.burn_fuel()
 
-
 func _tick_state():
 	state -= 1
 	progress.value = state
@@ -60,3 +60,11 @@ func _tick_state():
 func _update_fuel_display(fuel):
 	fuel_display.clear()
 	fuel_display.add_item(str(fuel), log_sprite, false)
+
+func disable():
+	collision.disabled = true
+	self.visible = false
+
+func enable():
+	collision.disabled = false
+	self.visible = true

@@ -6,16 +6,23 @@ extends Node2D
 
 var state = 0
 
+var seen_info = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Game.connect("season_changed", _season_changed)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	_draw_plants()
 
-func interact(area):
+func interact(_area):
+	if not seen_info:
+		seen_info = true
+		Game.send_notify("Hier könnte man etwas anbauen, ich glaube aber nicht dass irgendeine Pflanze den Winter überleben würde.")
+		pass
+
 	if Game.season != Game.Season.WINTER && state == 0:
 		state += 1
 	if Game.season == Game.Season.FALL && state == 3:
