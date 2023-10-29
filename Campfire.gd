@@ -14,6 +14,6 @@ func interact(_area):
 		Game.dec_item(Game.Items.FOOD, diff)
 		Game.inc_hunger(diff)
 	else:
-		var curr = Game.hunger_level
+		var curr = Game.get_item_count(Game.Items.FOOD)
 		Game.dec_item(Game.Items.FOOD, curr)
 		Game.inc_hunger(curr)
