@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://cvo4k015vvbbc"]
+[gd_scene load_steps=64 format=3 uid="uid://cvo4k015vvbbc"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_w4c37"]
 [ext_resource type="Texture2D" uid="uid://drsrti1a768ab" path="res://Art/Characters/Character/Character_Idle.png" id="2_2hbev"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://g3xyjfrck5af" path="res://Inventory.tscn" id="7_0w584"]
 [ext_resource type="Shader" path="res://player.gdshader" id="8_pf26w"]
 [ext_resource type="FontFile" uid="uid://or1ir2y2kqgd" path="res://assets/monogram-extended.ttf" id="9_ro76d"]
+[ext_resource type="AudioStream" uid="uid://dvc5h1ex0n1aj" path="res://assets/audio/rainfall.mp3" id="11_l34pn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6t56l"]
 
@@ -508,6 +509,10 @@ disabled = true
 
 [node name="NotifyTimer" type="Timer" parent="."]
 wait_time = 10.0
+
+[node name="ThunderstormPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_l34pn")
+volume_db = -16.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="NotifyTimer" to="." method="_on_notify_timer_timeout"]

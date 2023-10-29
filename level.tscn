@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b0d7glm55ekkw"]
+[gd_scene load_steps=29 format=3 uid="uid://b0d7glm55ekkw"]
 
 [ext_resource type="Texture2D" uid="uid://4gk76xijdfpe" path="res://assets/Tileset_Ground.png" id="1_u11gi"]
 [ext_resource type="Texture2D" uid="uid://bpm6jyra8y3hh" path="res://Art/Tileset_Road.png" id="2_1cmeu"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://5eokmotpd0yx" path="res://items/iron.tscn" id="15_etynv"]
 [ext_resource type="PackedScene" uid="uid://bjclqqu4uempn" path="res://workbench.tscn" id="16_or3ec"]
 [ext_resource type="Texture2D" uid="uid://bn2dwk33ifwhq" path="res://assets/Props/Shovel.png" id="17_6l3lg"]
+[ext_resource type="AudioStream" uid="uid://b1j88j5qpvcod" path="res://assets/audio/river_ambient.mp3" id="17_ifmb5"]
 [ext_resource type="PackedScene" uid="uid://iqpytyllcc7i" path="res://items/water.tscn" id="18_7uts8"]
 [ext_resource type="PackedScene" uid="uid://c4lj71mv2e" path="res://flower.tscn" id="18_5418l"]
 
@@ -9648,6 +9649,12 @@ position = Vector2(552, 120)
 texture = ExtResource("17_6l3lg")
 
 [node name="Water" type="Node2D" parent="."]
+
+[node name="WaterPlayer" type="AudioStreamPlayer2D" parent="Water"]
+position = Vector2(956, 65)
+stream = ExtResource("17_ifmb5")
+autoplay = true
+max_distance = 400.0
 
 [node name="water" parent="Water" instance=ExtResource("18_7uts8")]
 position = Vector2(801, 39)

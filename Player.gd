@@ -12,6 +12,7 @@ extends CharacterBody2D
 @onready var notify_label = $Camera2D/CanvasLayer/PanelContainer
 @onready var notify_rtl = $Camera2D/CanvasLayer/PanelContainer/MarginContainer/RichTextLabel
 @onready var notify_timer = $NotifyTimer
+@onready var thunderstorm_player = $ThunderstormPlayer
 
 enum {
 	RUN,
@@ -114,9 +115,11 @@ func season_changed(_season):
 	if Game.thunderstorm:
 		rain.visible = true
 		rain_filter.visible = true
+		thunderstorm_player.play()
 	else:
 		rain.visible = false
 		rain_filter.visible = false
+		thunderstorm_player.stop()
 
 func interact(_area):
 	pass
