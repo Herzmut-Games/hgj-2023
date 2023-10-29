@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b0d7glm55ekkw"]
+[gd_scene load_steps=31 format=3 uid="uid://b0d7glm55ekkw"]
 
 [ext_resource type="Texture2D" uid="uid://4gk76xijdfpe" path="res://assets/Tileset_Ground.png" id="1_u11gi"]
 [ext_resource type="Texture2D" uid="uid://bpm6jyra8y3hh" path="res://Art/Tileset_Road.png" id="2_1cmeu"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://b1j88j5qpvcod" path="res://assets/audio/river_ambient.mp3" id="17_ifmb5"]
 [ext_resource type="PackedScene" uid="uid://iqpytyllcc7i" path="res://items/water.tscn" id="18_7uts8"]
 [ext_resource type="PackedScene" uid="uid://c4lj71mv2e" path="res://flower.tscn" id="18_5418l"]
+[ext_resource type="Texture2D" uid="uid://54s0ims43aja" path="res://assets/Props/Wood_Cart.png" id="20_8tkqr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jntsd"]
 texture = ExtResource("1_u11gi")
@@ -9248,6 +9249,10 @@ sources/1 = SubResource("TileSetAtlasSource_qeyww")
 sources/4 = SubResource("TileSetAtlasSource_l3wbj")
 sources/7 = SubResource("TileSetAtlasSource_xuyd7")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66giq"]
+radius = 15.0
+height = 48.0
+
 [node name="Level" type="Node2D"]
 y_sort_enabled = true
 
@@ -10483,3 +10488,13 @@ position = Vector2(564, -200)
 
 [node name="Flower107" parent="Flowers" instance=ExtResource("18_5418l")]
 position = Vector2(519, -109)
+
+[node name="Cart" type="StaticBody2D" parent="."]
+position = Vector2(-465, 646)
+
+[node name="Sprite2D" type="Sprite2D" parent="Cart"]
+texture = ExtResource("20_8tkqr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cart"]
+position = Vector2(13, 1)
+shape = SubResource("CapsuleShape2D_66giq")
