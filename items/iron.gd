@@ -16,6 +16,7 @@ func interact(_area):
 	if not info_seen:
 		info_seen = true
 		Game.send_notify("Mit dem richtigen Werkzeug könnte ich vielleicht etwas Eisen abbauen")
+		return
 
 	if Game.use_tool():
 		_shake()

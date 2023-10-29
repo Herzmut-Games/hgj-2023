@@ -60,8 +60,8 @@ func _shake():
 func interact(area):
 	if Game.season == Game.Season.WINTER and not Game.stone_info_seen:
 		Game.stone_info_seen = true
-		Game.send_notify("Der Stein ist wie gefroren, den bekomm ich nicht kaputt.")
-		pass
+		Game.send_notify("Der Stein ist wie gefroren, den bekomm ich nicht kaputt, JUNGE!")
+		return
 
 	if area.is_in_group("player") && !mined && season != Game.Season.WINTER:
 		_shake()

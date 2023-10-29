@@ -35,7 +35,7 @@ var Inventory = {
 }
 
 var stone_info_seen = false
-var water_info_see = false
+var water_info_seen = false
 
 # Preloaded sprites.
 var tree0 = preload("res://assets/Trees and Bushes/Tree_Dark_2.png")

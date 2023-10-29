@@ -475,10 +475,11 @@ position = Vector2(21, 793)
 scale = Vector2(2, 2)
 
 [node name="PanelContainer" type="PanelContainer" parent="Camera2D/CanvasLayer"]
-offset_left = 362.0
-offset_top = 907.0
-offset_right = 630.0
-offset_bottom = 945.0
+visible = false
+offset_left = 375.0
+offset_top = 884.0
+offset_right = 641.0
+offset_bottom = 928.0
 scale = Vector2(5.63308, 4.31773)
 
 [node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/PanelContainer"]
@@ -493,7 +494,8 @@ layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("9_ro76d")
 theme_override_font_sizes/normal_font_size = 16
 text = "isgnvdlkfvb
-dfibndfgbhdfbdfbidjnfd"
+dfibndfgbhdfbdfbidjnfd
+sefgasdkljasihlbasdfg"
 tab_size = 2
 
 [node name="InteractionBox" parent="." instance=ExtResource("6_rlfsf")]
