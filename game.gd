@@ -6,13 +6,15 @@ const MAX_HUNGER = 10
 const HARVEST_AMOUNT = 4
 
 const MAX_THIRST = 25
-const THIRST_RATE_SUMMER = 4
+const THIRST_RATE_SUMMER = 3
 const THIRST_RATE_REGULAR = 6
 
-const MAX_TOOLS = 8
+const MAX_TOOLS = 10
 const TOOLS_PRICE = 3
+const TOOLS_AMOUNT = 5
 
 const THUNDERSTORM_CHANCE = 0.5
+const COLD_YEARS_START = 2
 
 var season = Season.SPRING
 var year = 0
@@ -100,34 +102,41 @@ func _fuel_changed(new_fuel):
 
 func _year_changed(new_year):
 	match new_year:
-		1: send_notify("Den Winter hab ich so gerade geschafft, ein Haus mit Kamin brauche ich bis zum Herbst auf jeden Fall...")
+		COLD_YEARS_START: send_notify("Den Winter hab ich so gerade geschafft, ein Haus mit Kamin brauche ich bis zum Herbst auf jeden Fall...")
 
 var summer_info_seen = false
 
 func _season_changed(new_season):
-	if randf_range(0, 1) < THUNDERSTORM_CHANCE:
-		thunderstorm = true
-	else:
-		thunderstorm = false
 
 	match new_season:
 		Game.Season.SPRING:
-			# Year starts in spring
 			_bump_year()
+			_check_thunderstorm()
 		Game.Season.SUMMER:
+			# Only good weather during summer
+			thunderstorm = false
+
 			if not summer_info_seen:
 				send_notify("Wahnsinn wie heiß es hier im Sommer ist, da muss ich dran denken immer genug zu trinken")
 				summer_info_seen = true
 		Game.Season.WINTER:
 			if house_level < 1:
 				end_game("erfroren (kein haus)")
-			if year > 0 and fuel_left == 0:
+			if year >= COLD_YEARS_START and fuel_left == 0:
 				end_game("erfroren (kein fuel winter)")
+			_check_thunderstorm()
 		Game.Season.FALL:
 			if house_level < 1:
 				send_notify("Ich glaube der Winter wird kalt...")
-			if year > 0 and fuel_left == 0:
+			if year >= COLD_YEARS_START and fuel_left == 0:
 				end_game("erfroren (kein fuel fall)")
+			_check_thunderstorm()
+
+func _check_thunderstorm():
+	if randf_range(0, 1) < THUNDERSTORM_CHANCE:
+		thunderstorm = true
+	else:
+		thunderstorm = false
 
 func set_season(s):
 	if season != s:
@@ -189,7 +198,7 @@ func use_tool():
 	return false
 
 func add_tools():
-	tools += 3
+	tools += TOOLS_AMOUNT
 	if tools > MAX_TOOLS:
 		tools = MAX_TOOLS
 
