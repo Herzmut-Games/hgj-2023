@@ -17,8 +17,8 @@ const MAX_HUNGER = 10
 const HARVEST_AMOUNT = 4
 
 const MAX_THIRST = 25
-const THIRST_RATE_SUMMER = 3
-const THIRST_RATE_REGULAR = 6
+const THIRST_RATE_SUMMER = 2
+const THIRST_RATE_REGULAR = 4
 
 const MAX_TOOLS = 10
 const TOOLS_PRICE = 3
@@ -33,7 +33,9 @@ var year = 0
 var hunger_level = MAX_HUNGER
 var thirst_level = MAX_THIRST
 var house_level = 0
-var fuel_left = 5
+
+const START_FUEL = 5
+var fuel_left = START_FUEL
 
 var tools = 0
 var tools_unlocked = false
@@ -41,13 +43,14 @@ var tools_unlocked = false
 var thunderstorm = false
 var reduced_visuals = false
 
-
-var Inventory = {
+const STARTING_INVENTORY ={
 	Items.WOOD: 0,
 	Items.STONE: 0,
 	Items.IRON: 0,
 	Items.FOOD: 0,
 }
+
+var Inventory = STARTING_INVENTORY
 
 var death_by = null
 
@@ -70,6 +73,26 @@ signal house_changed
 signal inventory_updated
 signal notify
 
+func clear_state():
+	season = Season.SPRING
+	year = 0
+
+	hunger_level = MAX_HUNGER
+	thirst_level = MAX_THIRST
+	house_level = 0
+	fuel_left = START_FUEL
+
+	tools = 0
+	tools_unlocked = false
+
+	thunderstorm = false
+
+	Inventory = STARTING_INVENTORY
+
+	death_by = null
+
+	stone_info_seen = false
+	water_info_seen = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
