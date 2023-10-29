@@ -115,7 +115,7 @@ func _fuel_changed(new_fuel):
 
 func _year_changed(new_year):
 	match new_year:
-		COLD_YEARS_START: send_notify("Den Winter hab ich so gerade geschafft, ein Haus mit Kamin brauche ich bis zum Herbst auf jeden Fall...")
+		COLD_YEARS_START: if house_level < 2: send_notify("Den Winter hab ich so gerade geschafft, ein Haus mit Kamin brauche ich bis zum Herbst auf jeden Fall...")
 		_: if house_level == 3: win_game()
 
 func _house_changed(new_level):
