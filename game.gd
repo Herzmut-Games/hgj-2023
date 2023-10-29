@@ -12,6 +12,8 @@ const THIRST_RATE_REGULAR = 6
 const MAX_TOOLS = 8
 const TOOLS_PRICE = 3
 
+const THUNDERSTORM_CHANCE = 0.5
+
 var season = Season.SPRING
 var hunger_level = MAX_HUNGER
 var thirst_level = MAX_THIRST
@@ -92,7 +94,7 @@ func _fuel_changed(new_fuel):
 		end_game("erforen kein fuel winter/fall")
 
 func _season_changed(new_season):
-	if randf_range(0, 1) > 1:
+	if randf_range(0, 1) < THUNDERSTORM_CHANCE:
 		thunderstorm = true
 	else:
 		thunderstorm = false

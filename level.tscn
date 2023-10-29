@@ -9700,15 +9700,16 @@ position = Vector2(1066, 216)
 [node name="Flowers" type="Node2D" parent="."]
 
 [node name="Flower" parent="Flowers" instance=ExtResource("18_5418l")]
+position = Vector2(400, 218)
 
 [node name="Flower2" parent="Flowers" instance=ExtResource("18_5418l")]
-position = Vector2(44, 123)
+position = Vector2(412, 242)
 
 [node name="Flower3" parent="Flowers" instance=ExtResource("18_5418l")]
-position = Vector2(51, 90)
+position = Vector2(455, 246)
 
 [node name="Flower4" parent="Flowers" instance=ExtResource("18_5418l")]
-position = Vector2(48, 55)
+position = Vector2(428, 218)
 
 [node name="Flower5" parent="Flowers" instance=ExtResource("18_5418l")]
-position = Vector2(86, 44)
+position = Vector2(455, 215)
