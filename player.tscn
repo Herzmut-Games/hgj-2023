@@ -475,11 +475,10 @@ position = Vector2(21, 793)
 scale = Vector2(2, 2)
 
 [node name="PanelContainer" type="PanelContainer" parent="Camera2D/CanvasLayer"]
-visible = false
-offset_left = 1314.0
-offset_top = 21.0
-offset_right = 1418.0
-offset_bottom = 64.0
+offset_left = 362.0
+offset_top = 907.0
+offset_right = 630.0
+offset_bottom = 945.0
 scale = Vector2(5.63308, 4.31773)
 
 [node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/PanelContainer"]
@@ -492,10 +491,9 @@ theme_override_constants/margin_bottom = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/CanvasLayer/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("9_ro76d")
-theme_override_font_sizes/normal_font_size = 0
+theme_override_font_sizes/normal_font_size = 16
 text = "isgnvdlkfvb
-dfibndfgbhdfb
-dfbidjnfd"
+dfibndfgbhdfbdfbidjnfd"
 tab_size = 2
 
 [node name="InteractionBox" parent="." instance=ExtResource("6_rlfsf")]
