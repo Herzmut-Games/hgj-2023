@@ -43,14 +43,12 @@ var tools_unlocked = false
 var thunderstorm = false
 var reduced_visuals = false
 
-const STARTING_INVENTORY ={
+var Inventory = {
 	Items.WOOD: 0,
 	Items.STONE: 0,
 	Items.IRON: 0,
 	Items.FOOD: 0,
 }
-
-var Inventory = STARTING_INVENTORY
 
 var death_by = null
 
@@ -87,7 +85,12 @@ func clear_state():
 
 	thunderstorm = false
 
-	Inventory = STARTING_INVENTORY
+	Inventory = {
+		Items.WOOD: 0,
+		Items.STONE: 0,
+		Items.IRON: 0,
+		Items.FOOD: 0,
+	}
 
 	death_by = null
 
