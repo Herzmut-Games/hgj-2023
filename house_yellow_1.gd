@@ -28,7 +28,7 @@ extends StaticBody2D
 @export var level_three_resources = {
 	Game.Items.WOOD: 20,
 	Game.Items.STONE: 20,
-	# Game.Items.IRON: 1
+	Game.Items.IRON: 3
 }
 
 var seen_info = false
@@ -58,7 +58,7 @@ func interact(_area):
 
 	if Game.has_items(required_resources):
 		Game.dec_items(required_resources)
-		Game.house_level += 1
+		Game._bump_house()
 
 		if Game.house_level < 3:
 			required_tooltip.set_required(_get_required_items())
