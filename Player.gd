@@ -57,7 +57,7 @@ func run_state(_delta):
 		if Input.is_action_just_pressed("action"):
 			state = INTERACT
 			animated_sprite.offset.y = 8
-			interaction_area.disabled = false 
+			interaction_area.disabled = false
 			_play_animation("action")
 
 
@@ -119,20 +119,23 @@ func _on_animated_sprite_2d_animation_finished():
 		state = RUN
 
 func season_changed(season):
+	rain.visible = false
+	rain_filter.visible = false
+	snow.visible = false
+	thunderstorm_player.stop()
+
 	if Game.thunderstorm:
-		if season == Game.Season.WINTER:
-			if !Game.reduced_visuals:
-				snow.visible = true
-		else:
-			thunderstorm_player.play()
-			if !Game.reduced_visuals:
-				rain.visible = true
 		rain_filter.visible = true
-	else:
-		rain.visible = false
-		rain_filter.visible = false
-		snow.visible = false
-		thunderstorm_player.stop()
+		_set_rain(season)
+
+		if season != Game.Season.WINTER:
+			thunderstorm_player.play()
+
+func _set_rain(season):
+	if not Game.reduced_visuals:
+		match season:
+			Game.Season.WINTER: snow.visible = true
+			_: rain.visible = true
 
 func interact(_area):
 	pass

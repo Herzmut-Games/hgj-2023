@@ -18,12 +18,10 @@ func set_required(items):
 		var icon
 
 		match key:
-			Game.Items.WOOD:
-				icon = log_sprite
-			Game.Items.STONE:
-				icon = stone_sprite
-			Game.Items.FOOD:
-				icon = food_sprite
+			Game.Items.WOOD: icon = log_sprite
+			Game.Items.STONE: icon = stone_sprite
+			Game.Items.FOOD: icon = food_sprite
+			Game.Items.IRON: icon = iron_sprite
 
 		item_list.add_item(str(amount), icon, false)
 
@@ -34,13 +32,9 @@ func set_required_icons(items):
 		var icon
 
 		match item:
-			Game.Items.WOOD:
-				icon = log_sprite
-			Game.Items.STONE:
-				icon = stone_sprite
-			Game.Items.FOOD:
-				icon = food_sprite
-			Game.Items.IRON:
-				icon = iron_sprite
+			Game.Items.WOOD: icon = log_sprite
+			Game.Items.STONE: icon = stone_sprite
+			Game.Items.FOOD: icon = food_sprite
+			Game.Items.IRON: icon = iron_sprite
 
 		item_list.add_icon_item(icon, false)

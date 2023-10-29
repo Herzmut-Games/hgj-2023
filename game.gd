@@ -151,11 +151,6 @@ func _house_changed(new_level):
 var summer_info_seen = false
 
 func _season_changed(new_season):
-	if randf_range(0, 1) < THUNDERSTORM_CHANCE && new_season != Game.Season.SUMMER:
-		thunderstorm = true
-	else:
-		thunderstorm = false
-
 	match new_season:
 		Game.Season.SPRING:
 			_bump_year()
