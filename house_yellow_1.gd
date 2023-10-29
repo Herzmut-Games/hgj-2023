@@ -67,7 +67,7 @@ func _season_changed(season):
 	_set_collision()
 
 	if Game.house_level > 1:
-		fuel_pile.visible = true
+		fuel_pile.enable()
 
 	match season:
 		Game.Season.WINTER:
@@ -93,7 +93,7 @@ func _hide_all_sprites():
 
 	level_2_normal_sprite.visible = false
 	level_2_winter_sprite.visible = false
-	fuel_pile.visible = false
+	fuel_pile.disable()
 
 	level_3_normal_sprite.visible = false
 	level_3_winter_sprite.visible = false
