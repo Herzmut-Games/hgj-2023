@@ -29,6 +29,8 @@ func _ready():
 	Game.notify.connect(notify)
 	_play_animation("idle")
 
+	Game.send_notify("Ich hatte einen komischen Traum in dem ein Typ was von überleben, irgendwelchen Pfeiltasten und einer Leertaste geschwafelt hat..")
+
 func _physics_process(delta):
 	run_state(delta)
 
@@ -129,7 +131,7 @@ func notify(text):
 	notify_rtl.clear()
 	notify_rtl.add_text(text)
 	notify_timer.start()
-	
+
 
 func _on_notify_timer_timeout():
 	notify_label.visible = false

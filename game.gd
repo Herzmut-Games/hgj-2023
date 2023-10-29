@@ -15,6 +15,8 @@ const TOOLS_PRICE = 3
 const THUNDERSTORM_CHANCE = 0.5
 
 var season = Season.SPRING
+var year = 0
+
 var hunger_level = MAX_HUNGER
 var thirst_level = MAX_THIRST
 var house_level = 0
@@ -46,6 +48,7 @@ var tree2 = preload("res://assets/Trees and Bushes/Tree_Red_2.png")
 var tree3 = preload("res://assets/Trees and Bushes/Tree_Snow_2.png")
 
 signal season_changed
+signal year_changed
 signal fuel_changed
 signal hunger_changed
 signal thirst_changed
@@ -58,6 +61,8 @@ signal notify
 func _ready():
 	self.connect("season_changed", _season_changed)
 	self.connect("fuel_changed", _fuel_changed)
+	self.connect("year_changed", _year_changed)
+
 
 func dec_thirst():
 	thirst_level -= 1
@@ -91,23 +96,37 @@ func inc_hunger(amount):
 
 func _fuel_changed(new_fuel):
 	if new_fuel == 0 and (season == Game.Season.WINTER or season == Game.Season.FALL):
-		end_game("erforen kein fuel winter/fall")
+		end_game("erfroren kein fuel winter/fall")
+
+func _year_changed(new_year):
+	match new_year:
+		1: send_notify("Den Winter hab ich so gerade geschafft, ein Haus mit Kamin brauche ich bis zum Herbst auf jeden Fall...")
+
+var summer_info_seen = false
 
 func _season_changed(new_season):
 	if randf_range(0, 1) < THUNDERSTORM_CHANCE:
 		thunderstorm = true
 	else:
 		thunderstorm = false
+
 	match new_season:
+		Game.Season.SPRING:
+			# Year starts in spring
+			_bump_year()
+		Game.Season.SUMMER:
+			if not summer_info_seen:
+				send_notify("Wahnsinn wie heiß es hier im Sommer ist, da muss ich dran denken immer genug zu trinken")
+				summer_info_seen = true
 		Game.Season.WINTER:
 			if house_level < 1:
 				end_game("erfroren (kein haus)")
-			elif fuel_left == 0:
+			if year > 0 and fuel_left == 0:
 				end_game("erfroren (kein fuel winter)")
 		Game.Season.FALL:
 			if house_level < 1:
-				send_notify("A cold winter is approaching!")
-			if fuel_left == 0:
+				send_notify("Ich glaube der Winter wird kalt...")
+			if year > 0 and fuel_left == 0:
 				end_game("erfroren (kein fuel fall)")
 
 func set_season(s):
@@ -182,6 +201,11 @@ func unlock_tools():
 
 func send_notify(text):
 	notify.emit(text)
+
+func _bump_year():
+	year += 1
+	year_changed.emit(year)
+
 
 func end_game(reason):
 	print(reason)
