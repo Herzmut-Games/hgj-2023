@@ -25,3 +25,19 @@ func set_required(items):
 				icon = food_sprite
 
 		item_list.add_item(str(amount), icon, false)
+
+func set_required_icons(items):
+	item_list.clear()
+
+	for item in items:
+		var icon
+
+		match item:
+			Game.Items.WOOD:
+				icon = log_sprite
+			Game.Items.STONE:
+				icon = stone_sprite
+			Game.Items.FOOD:
+				icon = food_sprite
+
+		item_list.add_icon_item(icon, false)

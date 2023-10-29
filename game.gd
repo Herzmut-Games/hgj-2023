@@ -34,6 +34,9 @@ var Inventory = {
 	Items.FOOD: 0,
 }
 
+var stone_info_seen = false
+var water_info_see = false
+
 # Preloaded sprites.
 var tree0 = preload("res://assets/Trees and Bushes/Tree_Dark_2.png")
 var tree1 = preload("res://assets/Trees and Bushes/Tree_Light_2.png")
