@@ -268,7 +268,7 @@ func _bump_house():
 	house_changed.emit(house_level)
 
 func win_game():
-	print("juhu")
+	get_tree().change_scene_to_file("res://win.tscn")
 
 func end_game(reason):
 	death_by = reason

@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgij2p8pdn8a3"]
+
+[ext_resource type="Script" path="res://win.gd" id="1_3myho"]
+[ext_resource type="Texture2D" uid="uid://hu5q3pbl0qjg" path="res://assets/9259344.jpg" id="2_kv65y"]
+[ext_resource type="FontFile" uid="uid://or1ir2y2kqgd" path="res://assets/monogram-extended.ttf" id="3_ajkt5"]
+
+[node name="Win" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3myho")
+
+[node name="TextureRect" type="Sprite2D" parent="."]
+position = Vector2(959.25, 640.5)
+scale = Vector2(0.6395, 0.6395)
+texture = ExtResource("2_kv65y")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 536.0
+offset_top = 56.0
+offset_right = 1400.0
+offset_bottom = 163.0
+theme_override_fonts/font = ExtResource("3_ajkt5")
+theme_override_font_sizes/font_size = 128
+text = "Gewonnen, juhu"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 856.0
+offset_top = 816.0
+offset_right = 1032.0
+offset_bottom = 876.0
+theme_override_fonts/font = ExtResource("3_ajkt5")
+theme_override_font_sizes/font_size = 64
+text = "Nochmal"
