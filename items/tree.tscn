@@ -43,7 +43,7 @@ wait_time = 10.0
 position = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
-position = Vector2(-1, 21)
+position = Vector2(0, 17)
 shape = SubResource("CircleShape2D_bbhny")
 
 [connection signal="timeout" from="SeasonSwapTimer" to="." method="_on_timer_timeout"]

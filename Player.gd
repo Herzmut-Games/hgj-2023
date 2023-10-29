@@ -33,6 +33,7 @@ func _physics_process(delta):
 
 func run_state(_delta):
 	if state == RUN:
+		calc_interaction()
 		var input_vector = Vector2.ZERO
 		input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 		input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
@@ -56,6 +57,24 @@ func run_state(_delta):
 	elif state == INTERACT:
 		pass
 
+func calc_interaction():
+	var direction = _get_direction_string(direction_vector.angle())
+	if direction == "left":
+		interaction_area.position.x = -13
+		interaction_area.position.y = 9
+		interaction_area.rotation_degrees = 90
+	elif direction == "right":
+		interaction_area.position.x = 13
+		interaction_area.position.y = 9
+		interaction_area.rotation_degrees = 90
+	elif direction == "up":
+		interaction_area.position.x = 0
+		interaction_area.position.y = -7
+		interaction_area.rotation_degrees = 0
+	elif direction == "down":
+		interaction_area.position.x = 0
+		interaction_area.position.y = 19
+		interaction_area.rotation_degrees = 0
 
 func on_target_hit() -> void:
 	for target in targets:

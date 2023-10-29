@@ -422,7 +422,7 @@ shader_parameter/colour = Color(1, 1, 1, 1)
 shader_parameter/size = Vector2(0.01, 0.1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5icmi"]
-size = Vector2(33, 35)
+size = Vector2(20, 26)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
@@ -501,7 +501,8 @@ tab_size = 2
 [node name="InteractionBox" parent="." instance=ExtResource("6_rlfsf")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
-position = Vector2(-0.5, 7.5)
+position = Vector2(13, 9)
+rotation = 1.5708
 shape = SubResource("RectangleShape2D_5icmi")
 disabled = true
 
