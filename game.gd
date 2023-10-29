@@ -12,6 +12,7 @@ enum DeathReason {
 enum Items {
 	WOOD, STONE, IRON, FOOD
 }
+
 const MAX_HUNGER = 10
 const HARVEST_AMOUNT = 4
 
@@ -65,6 +66,7 @@ signal fuel_changed
 signal hunger_changed
 signal thirst_changed
 signal tools_changed
+signal house_changed
 signal inventory_updated
 signal notify
 
@@ -74,6 +76,7 @@ func _ready():
 	self.connect("season_changed", _season_changed)
 	self.connect("fuel_changed", _fuel_changed)
 	self.connect("year_changed", _year_changed)
+	self.connect("house_changed", _house_changed)
 
 
 func dec_thirst():
@@ -113,6 +116,11 @@ func _fuel_changed(new_fuel):
 func _year_changed(new_year):
 	match new_year:
 		COLD_YEARS_START: send_notify("Den Winter hab ich so gerade geschafft, ein Haus mit Kamin brauche ich bis zum Herbst auf jeden Fall...")
+		_: if house_level == 3: win_game()
+
+func _house_changed(new_level):
+	match new_level:
+		2: send_notify("Ist ja eigentlich ganz nett hier, glaube wenn ich das Haus ausbause bin ich hier ganz glücklich")
 
 var summer_info_seen = false
 
@@ -229,6 +237,12 @@ func _bump_year():
 	year += 1
 	year_changed.emit(year)
 
+func _bump_house():
+	house_level += 1
+	house_changed.emit(house_level)
+
+func win_game():
+	print("juhu")
 
 func end_game(reason):
 	death_by = reason

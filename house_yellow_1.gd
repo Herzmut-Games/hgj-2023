@@ -58,7 +58,7 @@ func interact(_area):
 
 	if Game.has_items(required_resources):
 		Game.dec_items(required_resources)
-		Game.house_level += 1
+		Game._bump_house()
 
 		if Game.house_level < 3:
 			required_tooltip.set_required(_get_required_items())
